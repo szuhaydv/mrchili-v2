@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Card } from "./dataTypes";
     import CardComponent from "./CardComponent.svelte";
+    import ChiliCard from "./ChiliCard.svelte";
 
     class NavLink {
         constructor(
@@ -31,7 +32,7 @@
     const chilies = [
         new ChiliInfo(
             "Trinidad Morgua Scorpio",
-            "Japán",
+            "Japán 🇯🇵",
             3,
             "Lorem ipsum dolor sit amet dasrfsa consectetur. Donec mauris etiam elit orci sed quam cursus arcu.",
         ),
@@ -136,16 +137,17 @@
         <CardComponent {card} />
     {/each}
 </section>
-<section class="flex-row-reverse flex">
+<section class="flex-row-reverse flex justify-end">
     <div>
         <h2>Chilik a világ körül</h2>
     </div>
-    {#each chilies as chili}{/each}
+    {#each chilies as chili}
+        <ChiliCard {chili} />
+    {/each}
 </section>
 
 <style>
     :global(html) {
-        overflow: hidden;
         background: linear-gradient(to bottom, #dae2f8 60%, #d6a4a4 100%);
     }
 </style>
