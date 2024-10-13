@@ -6,35 +6,33 @@
     import AccordionComponent from "./AccordionComponent.svelte";
 </script>
 
-<main class="relative mx-8 lg:mx-12">
-    <div class="absolute flex flex-col pl-[10%]">
-        <h1 class="text-2xl font-semibold block leading-tight bg-red-300">
-            Heading One
+<main class="relative mx-8 lg:mx-12 h-[80vh]">
+    <div class="absolute top-0 left-0 z-10">
+        <h1 class="text-xl font-semibold block leading-tight pt-[10rem]">
+            Kézműves termékek <br /> széles választéka
         </h1>
-        <h2 class="text-xl block font-light leading-tight">
-            Subheading something
+        <h2 class="max-w-[40rem] text-lg font-light leading-tight">
+            Kóstold meg a világ elsőszámú tiszalöki chilijét!
         </h2>
-        <p class="text-md max-w-[40rem]">
-            Lorem ipsum dolor sit amet consectetur. Dictum interdum morbi
-            tincidunt at ut vel. Nulla blandit pulvinar tellus massa nulla
-            pellentesque enim. Non sed mauris nec in.
-        </p>
         <button
-            class="text-md text-white bg-[#D00000] border-white w-max rounded-full border-4 py-2 px-8 ml-[25%]"
+            class="text-md text-white bg-[#D00000] border-white w-max rounded-full border-4 py-2 px-8 ml-[25%] mt-4"
             >Körülnézek →</button
         >
     </div>
     <img
         src="/logo.png"
-        class="w-[8.77%] h-[8.77vw] absolute left-[8%] top-[-3vw]"
+        class="w-40 h-40 absolute left-[140px] top-[-3.5rem]"
         alt="Mr. Chili Logo"
     />
-    <svg
+    <div
+        class="banner w-full h-full bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem]"
+    ></div>
+    <!-- <svg
         class="banner"
         width="100%"
         viewBox="0 0 1808 672"
         xmlns="http://www.w3.org/2000/svg"
-        height="35vw"
+        height="80vh"
         preserveAspectRatio="none"
     >
         <defs>
@@ -50,7 +48,7 @@
             d="M 48,0 A 48,48 0 0 0 0,48 L 0,624 A 48,48 0 0 0 48,672 L 1760,672 A 48,48 0 0 0 1808,624 L 1808,48 A 48,48 0 0 0 1760,0 L 344,0 A 24,24 0 0 0 320,24 A 96,96 0 0 1 226,120 A 96,96 0 0 1 132,24 A 24,24 0 0 0 108,0 L 48,0"
             fill="url(#gradient)"
         />
-    </svg>
+    </svg> -->
 </main>
 <section
     class="
@@ -107,3 +105,18 @@
         <h2 class="section-title">Kapcsolat</h2>
     </section>
 </section>
+
+<style>
+    .banner {
+        -webkit-mask-image: radial-gradient(
+            circle at 220px 20px,
+            transparent 84px,
+            black 85px
+        );
+        mask-image: radial-gradient(
+            circle at 220px 20px,
+            transparent 84px,
+            black 85px
+        );
+    }
+</style>

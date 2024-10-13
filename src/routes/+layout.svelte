@@ -4,9 +4,7 @@
 
 <header>
     <nav class="flex items-center h-12 lg:h-[4rem] relative pr-24">
-        <h2 class="font-knewave text-lg ml-[calc(17.5vw+3rem)] mr-auto">
-            Mr. Chili
-        </h2>
+        <h2 class="font-knewave text-lg ml-[22.5rem] mr-auto">Mr. Chili</h2>
         <div class="flex gap-[clamp(1.5rem,-0.833rem+4.861vw,5rem)]">
             {#each routes as route}
                 <a

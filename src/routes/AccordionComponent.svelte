@@ -9,12 +9,14 @@
             <svelte:fragment slot="lead"
                 ><img
                     class="w-9 h-9"
-                    src="/delivery.svg"
-                    alt="delivery icon"
+                    src={element.iconString}
+                    alt="icon"
                 /></svelte:fragment
             >
             <svelte:fragment slot="summary">{element.question}</svelte:fragment>
-            <svelte:fragment slot="content">{element.answer}</svelte:fragment>
+            <svelte:fragment slot="content"
+                >{@html element.answer}</svelte:fragment
+            >
         </AccordionItem>
     {/each}
 </Accordion>
