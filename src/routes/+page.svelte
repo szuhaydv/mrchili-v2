@@ -1,106 +1,26 @@
 <script lang="ts">
-    import { Card } from "./dataTypes";
+    import { cards, chilies, reviews, gyikElements } from "./dataService";
     import CardComponent from "./CardComponent.svelte";
     import ChiliCard from "./ChiliCard.svelte";
-
-    class NavLink {
-        constructor(
-            public name = "",
-            public route = "",
-            public hidden = false,
-        ) {}
-    }
-
-    class ChiliInfo {
-        constructor(
-            public readonly name = "Chili",
-            public readonly origin = "Country",
-            public readonly spiceLevel = 2,
-            public readonly description = "lorem ipsum",
-        ) {}
-    }
-
-    const routes = [
-        new NavLink("Főoldal", "", false),
-        new NavLink("Termékeink", "products", true),
-        new NavLink("Paprikáink", "chilies", true),
-        new NavLink("Kapcsolat", "contact", true),
-        new NavLink("Rólunk", "about", true),
-        new NavLink("Rendelés", "order", false),
-    ];
-
-    const chilies = [
-        new ChiliInfo(
-            "Trinidad Morgua Scorpio",
-            "Japán 🇯🇵",
-            3,
-            "Lorem ipsum dolor sit amet dasrfsa consectetur. Donec mauris etiam elit orci sed quam cursus arcu.",
-        ),
-    ];
-    const cards: Card[] = [
-        new Card(
-            "100% Magyar",
-            "Termékeink hazai termőföldön lorem ipsum dolor sit amet",
-            "/hungary.svg",
-            "hungary icon",
-        ),
-        new Card(
-            "100% Elégedettség",
-            "Termékeink hazai termőföldön lorem ipsum dolor sit amet",
-            "/like.svg",
-            "like icon",
-        ),
-        new Card(
-            "Szállítés",
-            "Termékeink hazai termőföldön lorem ipsum dolor sit amet",
-            "/delivery.svg",
-            "delivery icon",
-        ),
-        new Card(
-            "Nyereményjátékok",
-            "Termékeink hazai termőföldön lorem ipsum dolor sit amet",
-            "/sale.svg",
-            "prize icon",
-        ),
-    ];
+    import ReviewComponent from "./ReviewComponent.svelte";
+    import AccordionComponent from "./AccordionComponent.svelte";
 </script>
 
-<header>
-    <nav class="flex items-center h-12 lg:h-[4rem] relative pr-24">
-        <h2 class="font-knewave text-lg ml-[calc(17.5vw+3rem)] mr-auto">
-            Mr. Chili
-        </h2>
-        <div class="flex gap-[clamp(1.5rem,-0.833rem+4.861vw,5rem)]">
-            {#each routes as route}
-                <a
-                    class="font-inter {route.hidden
-                        ? 'hidden'
-                        : ''} {route.name == 'Termékeink'
-                        ? 'lg:block'
-                        : '2xl:block'} font-semibold text-md text-[#444]"
-                    href={"/" + route.route}>{route.name}</a
-                >
-            {/each}
-        </div>
-        <img class="w-10 h-10 ml-2" src="/cart.svg" alt="Cart icon" />
-    </nav>
-</header>
-
 <main class="relative mx-8 lg:mx-12">
-    <div class="absolute h-[35vw] flex flex-col pl-[10%]">
-        <h1
-            class="text-2xl font-semibold block mt-auto leading-tight bg-red-300"
-        >
+    <div class="absolute flex flex-col pl-[10%]">
+        <h1 class="text-2xl font-semibold block leading-tight bg-red-300">
             Heading One
         </h1>
-        <h2 class="text-xl font-light">Subheading something</h2>
+        <h2 class="text-xl block font-light leading-tight">
+            Subheading something
+        </h2>
         <p class="text-md max-w-[40rem]">
             Lorem ipsum dolor sit amet consectetur. Dictum interdum morbi
             tincidunt at ut vel. Nulla blandit pulvinar tellus massa nulla
             pellentesque enim. Non sed mauris nec in.
         </p>
         <button
-            class="text-md text-white bg-[#D00000] mb-16 border-white w-max rounded-full border-4 py-2 px-8 ml-[25%]"
+            class="text-md text-white bg-[#D00000] border-white w-max rounded-full border-4 py-2 px-8 ml-[25%]"
             >Körülnézek →</button
         >
     </div>
@@ -132,7 +52,12 @@
         />
     </svg>
 </main>
-<section class="flex justify-evenly">
+<section
+    class="
+    flex flex-col justify-evenly gap-y-8 px-2 items-center
+    md:grid md:grid-cols-2 md:justify-items-center
+    xl:flex xl:flex-row"
+>
     {#each cards as card}
         <CardComponent {card} />
     {/each}
@@ -145,9 +70,40 @@
         <ChiliCard {chili} />
     {/each}
 </section>
-
-<style>
-    :global(html) {
-        background: linear-gradient(to bottom, #dae2f8 60%, #d6a4a4 100%);
-    }
-</style>
+<section>
+    <h2 class="section-title">Visszajelzések</h2>
+    <div
+        class="flex flex-col gap-6 items-center justify-center xl:flex-row xl:gap-12"
+    >
+        {#each reviews as review}
+            <ReviewComponent {review} />
+        {/each}
+    </div>
+</section>
+<section>
+    <h2 class="section-title">Vásárlás menete</h2>
+    <div class="order-step">
+        <img class="w-16 h-16" src="/send.svg" alt="Send icon" />
+        <span class="font-semibold text-lg"
+            >Adjon fel egy rendelést weboldalunkon</span
+        >
+    </div>
+    <div class="order-step">
+        <img class="w-16 h-16" src="/bank.svg" alt="Bank icon" />
+        <span class="font-semibold text-lg">Utalja el a rendlés összegét</span>
+    </div>
+    <div class="order-step">
+        <img class="w-16 h-16" src="/deliver.svg" alt="Delivery icon" />
+        <span class="font-semibold text-lg">...és már szállítjuk is Önhöz!</span
+        >
+    </div>
+</section>
+<section class="flex">
+    <section>
+        <h2 class="section-title">GYIK</h2>
+        <AccordionComponent {gyikElements} />
+    </section>
+    <section>
+        <h2 class="section-title">Kapcsolat</h2>
+    </section>
+</section>
