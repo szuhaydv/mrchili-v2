@@ -20,8 +20,8 @@
             {product.price} Ft
         </h3>
         <ul>
-            {#each product.spiceLevel as spiceLevel}
-                <li>Something</li>
+            {#each Array.from({ length: product.spiceLevel }) as spiceLevel}
+                <li></li>
             {/each}
         </ul>
         <p class="mx-8">{product.description}</p>

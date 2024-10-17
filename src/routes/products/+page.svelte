@@ -1,6 +1,17 @@
 <script>
     import { productInfo } from "../dataService";
     import ProductCard from "./ProductCard.svelte";
+
+    let showCategoryFilter = false;
+    let showSpicynessFilter = false;
+
+    function toggle(filterNo) {
+        if (filterNo == 0) {
+            showCategoryFilter = !showCategoryFilter;
+        } else if (filterNo == 1) {
+            showSpicynessFilter = !showSpicynessFilter;
+        }
+    }
 </script>
 
 <main class="relative mx-8 lg:mx-12 h-[80vh]">
@@ -13,9 +24,10 @@
     <div class="absolute top-0 left-0 w-full">
         <h1 class="opacity-0 absolute">Products Page</h1>
         <div class="flex justify-center gap-8 mt-12 w-full">
-            <div>
+            <div class="relative h-fit">
                 <button
                     class="pl-4 pr-8 py-2 flex items-center border-2 border-[#E6EBF0] rounded-2xl"
+                    on:click={() => toggle(0)}
                 >
                     <img
                         class="mr-3"
@@ -25,15 +37,25 @@
                     <span class="text-lg">Kategória</span>
                     <span class="ml-8 opacity-[36%]">▼</span>
                 </button>
-                <ul>
+                <ul
+                    class="absolute rounded-2xl border-2 border-[#E6EBF0] w-full mt-2 text-md p-4 flex flex-col gap-2 bg-white"
+                    class:hidden={!showCategoryFilter}
+                >
                     {#each productInfo as category}
-                        <li>{category.title}</li>
+                        <li class="flex">
+                            <input
+                                type="checkbox"
+                                class="mr-2 w-5 h-5 cursor-pointer"
+                            />
+                            {category.title}
+                        </li>
                     {/each}
                 </ul>
             </div>
             <div>
                 <button
                     class="pl-4 pr-8 py-2 flex items-center border-2 border-[#E6EBF0] rounded-2xl"
+                    on:click={() => toggle(1)}
                 >
                     <img
                         class="mr-3"
@@ -43,11 +65,7 @@
                     <span class="text-lg">Csípősség</span>
                     <span class="ml-8 opacity-[36%]">▼</span>
                 </button>
-                <ul>
-                    {#each [0, 1, 2, 3, 4, 5] as spiceLevel}
-                        <li>{spiceLevel}</li>
-                    {/each}
-                </ul>
+                <ul></ul>
             </div>
         </div>
         {#each productInfo as category}

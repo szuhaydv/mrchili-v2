@@ -3,7 +3,7 @@
 </script>
 
 <article
-    class="bg-white px-4 py-6 w-[19.5rem] rounded-lg flex flex-col gap-4 shadow-sm
+    class="bg-white px-4 py-6 w-[19.5rem] rounded-lg flex flex-col gap-6 shadow-sm
     sm:px-8 sm:w-[21rem]
     xl:h-60
     "
@@ -14,7 +14,7 @@
         {/each}
     </div>
     <p>{review.review}</p>
-    <div class="flex">
+    <div class="flex mt-auto">
         <img class="w-12 h-12 mr-3" src={review.avatar} alt="avatar icon" />
         <div>
             <span class="block font-bold text-[#757575]">{review.name}</span>

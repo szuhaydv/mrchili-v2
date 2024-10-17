@@ -83,19 +83,19 @@ export const reviews: Review[] = [
 		"Nagy Péter",
 		"Finom szószokat kóstoltam tőlük. Ajánlom mindenkinek.",
 		"/avatar1.svg",
-		"2024 / 10 / 19",
+		"2024 / 09 / 23",
 	),
 	new Review(
 		"Tóth Bertalan",
 		"Mindenki vegye komolyan a Végítéletet. Már tíz perce zsibbad a szám, de tükörtojásra kihagyhatatlan.",
 		"/avatar2.svg",
-		"2024 / 10 / 17",
+		"2024 / 10 / 02",
 	),
 	new Review(
 		"Fekete Eszter",
 		"A páromnak vettem névnapjára egy barackos és egy epres szószt. Mindkettő ízlett neki.",
 		"/avatar3.svg",
-		"2024 / 10 / 15",
+		"2024 / 10 / 17",
 	),
 ];
 
