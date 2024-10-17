@@ -1,19 +1,83 @@
-<svg
-    class="banner"
-    width="100%"
-    viewBox="0 0 1808 672"
-    xmlns="http://www.w3.org/2000/svg"
-    height="100vh"
-    preserveAspectRatio="none"
->
-    <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#fdc830; stop-opacity:1;" />
-            <stop offset="100%" style="stop-color:#f37335; stop-opacity:1;" />
-        </linearGradient>
-    </defs>
-    <path
-        d="M 48,0 A 48,48 0 0 0 0,48 L 0,624 A 48,48 0 0 0 48,672 L 1760,672 A 48,48 0 0 0 1808,624 L 1808,48 A 48,48 0 0 0 1760,0 L 344,0 A 24,24 0 0 0 320,24 A 96,96 0 0 1 226,120 A 96,96 0 0 1 132,24 A 24,24 0 0 0 108,0 L 48,0"
-        fill="url(#gradient)"
+<script>
+    import { productInfo } from "../dataService";
+    import ProductCard from "./ProductCard.svelte";
+</script>
+
+<main class="relative mx-8 lg:mx-12 h-[80vh]">
+    <img
+        src="/logo.png"
+        class="w-40 h-40 absolute left-[140px] top-[-3.5rem]"
+        alt="Mr. Chili Logo"
     />
-</svg>
+    <div class="banner w-full h-[200vh] bg-white rounded-[3rem]"></div>
+    <div class="absolute top-0 left-0 w-full">
+        <h1 class="opacity-0 absolute">Products Page</h1>
+        <div class="flex justify-center gap-8 mt-12 w-full">
+            <div>
+                <button
+                    class="pl-4 pr-8 py-2 flex items-center border-2 border-[#E6EBF0] rounded-2xl"
+                >
+                    <img
+                        class="mr-3"
+                        src="./category_filter.svg"
+                        alt="Category filter"
+                    />
+                    <span class="text-lg">Kategória</span>
+                    <span class="ml-8 opacity-[36%]">▼</span>
+                </button>
+                <ul>
+                    {#each productInfo as category}
+                        <li>{category.title}</li>
+                    {/each}
+                </ul>
+            </div>
+            <div>
+                <button
+                    class="pl-4 pr-8 py-2 flex items-center border-2 border-[#E6EBF0] rounded-2xl"
+                >
+                    <img
+                        class="mr-3"
+                        src="./spice_filter.svg"
+                        alt="Spyciness filter"
+                    />
+                    <span class="text-lg">Csípősség</span>
+                    <span class="ml-8 opacity-[36%]">▼</span>
+                </button>
+                <ul>
+                    {#each [0, 1, 2, 3, 4, 5] as spiceLevel}
+                        <li>{spiceLevel}</li>
+                    {/each}
+                </ul>
+            </div>
+        </div>
+        {#each productInfo as category}
+            <h2
+                class="font-knewave ml-8 text-lg border-b-[#E6EBF0] border-b-2 pb-4 pl-6 pr-16 w-max"
+            >
+                {category.title}
+            </h2>
+            <ul class="grid grid-cols-4 mt-4 place-items-center">
+                {#each category.products as product}
+                    <li>
+                        <ProductCard {product} />
+                    </li>
+                {/each}
+            </ul>
+        {/each}
+    </div>
+</main>
+
+<style>
+    .banner {
+        -webkit-mask-image: radial-gradient(
+            circle at 220px 20px,
+            transparent 84px,
+            black 85px
+        );
+        mask-image: radial-gradient(
+            circle at 220px 20px,
+            transparent 84px,
+            black 85px
+        );
+    }
+</style>

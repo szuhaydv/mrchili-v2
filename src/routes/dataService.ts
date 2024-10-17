@@ -126,3 +126,60 @@ export const gyikElements: GYIKelement[] = [
 	),
 ];
 
+class ChiliCategory {
+	constructor(
+		public readonly title = "",
+		public readonly products: Product[] = []
+	) { }
+}
+
+class Product {
+	constructor(
+		public readonly title = "",
+		public readonly price = 0,
+		public readonly spiceLevel = 0,
+		public readonly description = "",
+		//TODO later add stock
+	) { }
+}
+
+export let productInfo = [
+	new ChiliCategory(
+		"Chiliszósz",
+		[
+			new Product(
+				"Végítélet",
+				3499,
+				5,
+				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+			),
+			new Product(
+				"Gangsteper",
+				3499,
+				1,
+				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+			),
+			new Product(
+				"Barackrém",
+				3499,
+				2,
+				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+			),
+			new Product(
+				"Pumpkin Spicy",
+				3499,
+				2,
+				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+			)
+		]
+	),
+	new ChiliCategory(
+		"Chutney",
+		[]
+	),
+	new ChiliCategory(
+		"BBQ",
+		[]
+	)
+
+]

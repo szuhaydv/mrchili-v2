@@ -24,6 +24,7 @@ export default {
       "sm": "1rem",
       "md": "1.375rem",
       "lg": "2rem",
+      "sxl": "2.8125rem",
       "xl": "4rem",
       "2xl": "5.625rem"
     }

@@ -25,7 +25,7 @@
         alt="Mr. Chili Logo"
     />
     <div
-        class="banner w-full h-full bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem]"
+        class="banner w-full h-full top-0 bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem]"
     ></div>
     <!-- <svg
         class="banner"
