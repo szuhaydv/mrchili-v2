@@ -135,6 +135,7 @@ class ChiliCategory {
 
 class Product {
 	constructor(
+		public readonly imgPath = "",
 		public readonly title = "",
 		public readonly price = 0,
 		public readonly spiceLevel = 0,
@@ -148,18 +149,21 @@ export let productInfo = [
 		"Chiliszósz",
 		[
 			new Product(
+				"/vegitelet.png",
 				"Végítélet",
 				4490,
 				5,
 				"Carolina Reaper chiliszósz"
 			),
 			new Product(
+				"",
 				"Kísértés",
 				3990,
 				4,
 				"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz"
 			),
 			new Product(
+				"",
 				"Fantom",
 				3990,
 				4,
@@ -171,24 +175,28 @@ export let productInfo = [
 		"Chutney",
 		[
 			new Product(
+				"/gangsteper.png",
 				"Gangsteper",
 				2990,
 				1,
 				"Epres-chilis chutney"
 			),
 			new Product(
+				"/barackrem.png",
 				"Barackrém",
 				2990,
 				2,
 				"Sárgabarackos-chilis chutney"
 			),
 			new Product(
+				"",
 				"Bahamangó",
 				2990,
 				2,
 				"Mangós-chilis chutney"
 			),
 			new Product(
+				"pumpkin_spicy.png",
 				"Pumpkin Spicy",
 				2490,
 				2,

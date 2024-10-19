@@ -31,11 +31,11 @@
                 <span class="ml-8 opacity-[36%]">▼</span>
             </button>
             <ul
-                class="absolute rounded-2xl border-2 border-[#E6EBF0] w-full mt-2 text-md p-4 flex flex-col gap-2 bg-white"
+                class="absolute rounded-2xl border-2 border-[#E6EBF0] w-full mt-2 text-md p-4 flex flex-col gap-4 bg-white z-10"
                 class:hidden={!showCategoryFilter}
             >
                 {#each productInfo as category}
-                    <li class="flex">
+                    <li class="flex items-center">
                         <input
                             type="checkbox"
                             class="mr-2 w-5 h-5 cursor-pointer"
@@ -59,20 +59,24 @@
                 <span class="ml-8 opacity-[36%]">▼</span>
             </button>
             <ul
-                class="absolute w-full rounded-2xl border-2 border-[#E6EBF0] mt-2 text-md p-4 flex flex-col gap-2 bg-white"
+                class="absolute w-full rounded-2xl border-2 border-[#E6EBF0] mt-2 text-md p-4 flex flex-col gap-4 bg-white z-10"
                 class:hidden={!showSpicynessFilter}
             >
-                {#each Array.from({ length: 5 }, (_, i) => i) as category}
-                    <li class="flex items-center">
+                {#each Array.from({ length: 6 }, (_, i) => i) as spiceLevel}
+                    <li class="flex gap-2 items-center m-auto">
                         <input
                             type="checkbox"
                             class="mr-2 w-5 h-5 cursor-pointer"
                         />
-                        <img
-                            src="/fire_colored.png"
-                            class="h-5 w-5"
-                            alt="Fire icon"
-                        />
+                        {#each Array.from({ length: 5 }, (_, i) => i) as fire}
+                            <img
+                                src="/fire_colored.png"
+                                class="h-8 w-8"
+                                alt="Fire icon"
+                                class:opacity-20={fire >= spiceLevel}
+                                class:grayscale={fire >= spiceLevel}
+                            />
+                        {/each}
                     </li>
                 {/each}
             </ul>

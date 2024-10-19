@@ -2,9 +2,13 @@
     export let product;
 </script>
 
-<article class="w-80 rounded-lg shadow overflow-hidden">
-    <div class="bg-[#E6EBF0] h-[25rem]">
-        <img src="" alt="" />
+<article class="w-80 rounded-lg shadow h-[46.25rem]">
+    <div class="bg-[#E6EBF0] rounded-lg h-[25rem] relative">
+        <img
+            class="scale-150 rotate-12 absolute left-[15%] top-[-10%]"
+            src={product.imgPath}
+            alt={product.imgPath}
+        />
     </div>
     <header>
         <h2
@@ -13,19 +17,27 @@
             {product.title}
         </h2>
     </header>
-    <footer>
+    <footer class="flex flex-col gap-4 pt-4">
+        <ul class="flex justify-center">
+            {#each Array.from({ length: 5 }, (_, i) => i) as current}
+                <li>
+                    <img
+                        src="/fire_colored.png"
+                        alt="Fire icon"
+                        class="w-8 h-8"
+                        class:opacity-20={current >= product.spiceLevel}
+                        class:grayscale={current >= product.spiceLevel}
+                    />
+                </li>
+            {/each}
+        </ul>
+        <p class="mx-8 text-md text-center">{product.description}</p>
         <h3
-            class="text-lg font-extralight text-center text-[#ff0000] leading-normal"
+            class="text-lg font-extralight text-center text-[#ff0000] leading-tight"
         >
             {product.price} Ft
         </h3>
-        <ul>
-            {#each Array.from({ length: product.spiceLevel }) as spiceLevel}
-                <li></li>
-            {/each}
-        </ul>
-        <p class="mx-8">{product.description}</p>
-        <div class="flex h-[4.5rem] shadow mx-5 mb-8 mt-4">
+        <div class="flex h-[4.5rem] shadow mx-5 mt-auto">
             <input
                 class="flex stroke-none w-[4.5rem] text-center bg-[#E6EBF0]"
                 type="number"
@@ -44,5 +56,8 @@
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+    }
+    footer {
+        height: 36%;
     }
 </style>
