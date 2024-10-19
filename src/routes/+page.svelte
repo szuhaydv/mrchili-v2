@@ -19,11 +19,6 @@
             >Körülnézek →</button
         >
     </div>
-    <img
-        src="/logo.png"
-        class="w-40 h-40 absolute left-[140px] top-[-3.5rem]"
-        alt="Mr. Chili Logo"
-    />
     <div
         class="banner w-full h-full top-0 bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem]"
     ></div>

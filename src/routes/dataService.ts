@@ -149,33 +149,53 @@ export let productInfo = [
 		[
 			new Product(
 				"Végítélet",
-				3499,
+				4490,
 				5,
-				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+				"Carolina Reaper chiliszósz"
 			),
 			new Product(
-				"Gangsteper",
-				3499,
-				1,
-				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+				"Kísértés",
+				3990,
+				4,
+				"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz"
 			),
 			new Product(
-				"Barackrém",
-				3499,
-				2,
-				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
+				"Fantom",
+				3990,
+				4,
+				"Bhut Yolokia chiliszósz",
 			),
-			new Product(
-				"Pumpkin Spicy",
-				3499,
-				2,
-				"Carolina reaper, etc. Lorem ipsum dolor sit amet con sectetur. lékdang fédlajga."
-			)
 		]
 	),
 	new ChiliCategory(
 		"Chutney",
-		[]
+		[
+			new Product(
+				"Gangsteper",
+				2990,
+				1,
+				"Epres-chilis chutney"
+			),
+			new Product(
+				"Barackrém",
+				2990,
+				2,
+				"Sárgabarackos-chilis chutney"
+			),
+			new Product(
+				"Bahamangó",
+				2990,
+				2,
+				"Mangós-chilis chutney"
+			),
+			new Product(
+				"Pumpkin Spicy",
+				2490,
+				2,
+				"Sütőtökös-chilis chutney"
+			)
+
+		]
 	),
 	new ChiliCategory(
 		"BBQ",

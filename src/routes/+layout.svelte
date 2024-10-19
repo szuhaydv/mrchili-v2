@@ -2,7 +2,7 @@
     import { routes } from "./dataService";
 </script>
 
-<header>
+<header class="relative">
     <nav class="flex items-center h-12 lg:h-[4rem] relative pr-24">
         <h2 class="font-knewave text-lg ml-[22.5rem] mr-auto">Mr. Chili</h2>
         <div class="flex gap-[clamp(1.5rem,-0.833rem+4.861vw,5rem)]">
@@ -19,6 +19,11 @@
         </div>
         <img class="w-10 h-10 ml-2" src="/cart.svg" alt="Cart icon" />
     </nav>
+    <img
+        src="/logo.png"
+        class="w-40 h-40 absolute left-[11.75rem] top-[0.25rem]"
+        alt="Mr. Chili Logo"
+    />
 </header>
 
 <slot></slot>
