@@ -4,11 +4,12 @@
     export let product;
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
 <article
     class="w-80 rounded-lg shadow h-[46.25rem]"
     on:click={() => goto("./products/" + product.id)}
-    tabindex={product.id}
-    on:keydown={() => (event) =>
+    tabindex="0"
+    on:keydown={(event) =>
         event.key === "Enter" ? goto("./" + product.id) : ""}
     role="button"
 >
@@ -40,7 +41,7 @@
                 </li>
             {/each}
         </ul>
-        <p class="mx-8 text-md text-center">{product.description}</p>
+        <p class="mx-8 text-md text-center">{product.shortDescription}</p>
         <h3
             class="text-lg font-extralight text-center text-[#ff0000] leading-tight"
         >

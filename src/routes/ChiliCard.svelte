@@ -35,5 +35,5 @@
         <b class="px-4 py-2 bg-black rounded-lg text-white mr-4">Csípősség:</b
         >{#each Array.from({ length: chili.spiceLevel }) as _}🌶{/each}
     </h4>
-    <p>{chili.description}</p>
+    <p>{chili.shortDescription}</p>
 </section>
