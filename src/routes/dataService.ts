@@ -126,16 +126,10 @@ export const gyikElements: GYIKelement[] = [
 	),
 ];
 
-class ChiliCategory {
-	constructor(
-		public readonly title = "",
-		public readonly products: Product[] = []
-	) { }
-}
-
 export class Product {
 	constructor(
 		public readonly id = -1,
+		public readonly category = -1,
 		public readonly imgPath = "",
 		public readonly title = "",
 		public readonly price = 0,
@@ -148,92 +142,86 @@ export class Product {
 	) { }
 }
 
-export let productInfo = [
-	new ChiliCategory(
-		"Chiliszósz",
-		[
-			new Product(
-				0,
-				"/vegitelet.png",
-				"Végítélet",
-				4490,
-				5,
-				"Carolina Reaper chiliszósz",
-				"Carolina Reaper, balzsamecet, fokhagyma, só, nátrium-benzoát",
-				"A világ egyik legerősebb chilije, a Kaszás nem ismer kegyelmet, kemény próbatétel elé állítja a halandókat. A Végítélet kiválóan alkalmas az utolsó vacsorák ízesítéséhez. Pörköltbe, bográcsételekbe és levesekbe adagolva igazán különleges ízélményben lehet részetek.",
-				true
-			),
-			new Product(
-				1,
-				"",
-				"Kísértés",
-				3990,
-				4,
-				"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz",
-				"",
-				""
-			),
-			new Product(
-				2,
-				"",
-				"Fantom",
-				3990,
-				4,
-				"Bhut Yolokia chiliszósz",
-				"",
-				""
-			),
-		]
-	),
-	new ChiliCategory(
-		"Chutney",
-		[
-			new Product(
-				3,
-				"/gangsteper.png",
-				"Gangsteper",
-				2990,
-				1,
-				"Epres-chilis chutney",
-				"eper, Habanero, gyömbér, balzsamecet, fokhagyma, só, cukor, citromsav, nátrium-benzoát",
-				"A mézédes eper, a tüzes Habanero és a pikáns gyömbér találkozásakor toroksimogató csoda történik. A Gangsteper nem csalja elő a könnyeidet, csak néha-néha odacsíp. A vasárnapi palacsinta és túrógombóc nélkülözhetetlen társa, de sült sertéshúsokhoz is remekül passzol.",
-				true
-			),
-			new Product(
-				4,
-				"/barackrem.png",
-				"Barackrém",
-				2990,
-				2,
-				"Sárgabarackos-chilis chutney",
-				"sárgabarack, Bhut Jolokia Yellow, balzsamecet, méz, vöröshagyma, fokhagyma, só, citromsav, nátrium-benzoát",
-				"Zamatos sárgabarack és lángoló Bhut Jolokia nászából született a palackba zárt, barátságos szellem, a Barackrém. Gyümölcsösségével elvarázsol, majd tüzességével enyhén fejbe kólint. Barackos húsok és sült csirkés ételek megbolondításához igazán jó választás.",
-				true
-			),
-			new Product(
-				5,
-				"",
-				"Bahamangó",
-				2990,
-				2,
-				"Mangós-chilis chutney"
-			),
-			new Product(
-				6,
-				"/pumpkin_spicy.png",
-				"Pumpkin Spicy",
-				2490,
-				2,
-				"Sütőtökös-chilis chutney",
-				"sütőtök, Bahamian Goat Pepper, balzsamecet, vöröshagyma, fokhagyma, gyömbér, méz, szerecsendió, só, citromsav, nátrium-benzoát",
-				"Sütőtök illata árad a konyhából egy borús őszi estén. A szerecsendió, gyömbér és chili hármasa tökéletesen harmonizál a mézes tökpürével. Ha szereted a különleges ízvilágú kávékat, egy Pumpkin Spicy Latte-t mindenképp készíts a szósszal, de a melegszendvicsedet is garantáltan feldobja.",
-				true
-			)
-		]
-	),
-	new ChiliCategory(
-		"BBQ",
-		[]
-	)
+export let categories = ["Chiliszósz", "Chutney", "BBQ"]
 
+export let productInfo = [
+	new Product(
+		0,
+		0,
+		"/vegitelet.png",
+		"Végítélet",
+		4490,
+		5,
+		"Carolina Reaper chiliszósz",
+		"Carolina Reaper, balzsamecet, fokhagyma, só, nátrium-benzoát",
+		"A világ egyik legerősebb chilije, a Kaszás nem ismer kegyelmet, kemény próbatétel elé állítja a halandókat. A Végítélet kiválóan alkalmas az utolsó vacsorák ízesítéséhez. Pörköltbe, bográcsételekbe és levesekbe adagolva igazán különleges ízélményben lehet részetek.",
+		true
+	),
+	new Product(
+		1,
+		0,
+		"",
+		"Kísértés",
+		3990,
+		4,
+		"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz",
+		"",
+		""
+	),
+	new Product(
+		2,
+		0,
+		"",
+		"Fantom",
+		3990,
+		4,
+		"Bhut Yolokia chiliszósz",
+		"",
+		""
+	),
+	new Product(
+		3,
+		1,
+		"/gangsteper.png",
+		"Gangsteper",
+		2990,
+		1,
+		"Epres-chilis chutney",
+		"eper, Habanero, gyömbér, balzsamecet, fokhagyma, só, cukor, citromsav, nátrium-benzoát",
+		"A mézédes eper, a tüzes Habanero és a pikáns gyömbér találkozásakor toroksimogató csoda történik. A Gangsteper nem csalja elő a könnyeidet, csak néha-néha odacsíp. A vasárnapi palacsinta és túrógombóc nélkülözhetetlen társa, de sült sertéshúsokhoz is remekül passzol.",
+		true
+	),
+	new Product(
+		4,
+		1,
+		"/barackrem.png",
+		"Barackrém",
+		2990,
+		2,
+		"Sárgabarackos-chilis chutney",
+		"sárgabarack, Bhut Jolokia Yellow, balzsamecet, méz, vöröshagyma, fokhagyma, só, citromsav, nátrium-benzoát",
+		"Zamatos sárgabarack és lángoló Bhut Jolokia nászából született a palackba zárt, barátságos szellem, a Barackrém. Gyümölcsösségével elvarázsol, majd tüzességével enyhén fejbe kólint. Barackos húsok és sült csirkés ételek megbolondításához igazán jó választás.",
+		true
+	),
+	new Product(
+		5,
+		1,
+		"",
+		"Bahamangó",
+		2990,
+		2,
+		"Mangós-chilis chutney"
+	),
+	new Product(
+		6,
+		1,
+		"/pumpkin_spicy.png",
+		"Pumpkin Spicy",
+		2490,
+		2,
+		"Sütőtökös-chilis chutney",
+		"sütőtök, Bahamian Goat Pepper, balzsamecet, vöröshagyma, fokhagyma, gyömbér, méz, szerecsendió, só, citromsav, nátrium-benzoát",
+		"Sütőtök illata árad a konyhából egy borús őszi estén. A szerecsendió, gyömbér és chili hármasa tökéletesen harmonizál a mézes tökpürével. Ha szereted a különleges ízvilágú kávékat, egy Pumpkin Spicy Latte-t mindenképp készíts a szósszal, de a melegszendvicsedet is garantáltan feldobja.",
+		true
+	)
 ]

@@ -1,11 +1,5 @@
 <script lang="ts">
-    import {
-        cards,
-        reviews,
-        gyikElements,
-        productInfo,
-        Product,
-    } from "./dataService"; // add chilis for map later
+    import { cards, reviews, gyikElements, productInfo } from "./dataService"; // add chilis for map later
     import "animate.css";
     import CardComponent from "./CardComponent.svelte";
     //import ChiliCard from "./ChiliCard.svelte";
@@ -43,9 +37,7 @@
         currentOrderInfo = e.detail.current;
     }
 
-    $: landingProducts = productInfo.reduce<Product[]>((res, curr) => {
-        return [...res, ...curr.products.filter((el) => el.showOnLanding)];
-    }, []);
+    $: landingProducts = productInfo.filter((el) => el.showOnLanding);
 
     let carousel: typeof Carousel;
     let currentPageIndex = 0;
@@ -76,7 +68,10 @@
         <h2 class="max-w-[40rem] text-lg font-light leading-tight">
             Kóstold meg a világ elsőszámú tiszalöki chilijét!
         </h2>
-        <CallToAction text="Körülnézek →"></CallToAction>
+        <div class="ml-32 mt-8">
+            <CallToAction destination="/products" text="Körülnézek →"
+            ></CallToAction>
+        </div>
     </div>
     <div class="w-1/4 bg-red-300 h-full flex items-center relative">
         <div
@@ -109,7 +104,10 @@
                             />
                         </div>
                     {/each}
-                    <div slot="dots" class="custom-dots flex items-center">
+                    <div
+                        slot="dots"
+                        class="custom-dots flex items-center -translate-y-10"
+                    >
                         {#each Array(landingProducts.length) as _, pageIndex (pageIndex)}
                             <button on:click={() => circleClick(pageIndex)}>
                                 <div
@@ -241,7 +239,8 @@
             />
         </div>
         <div class="mt-8">
-            <CallToAction text="Vásárolok →"></CallToAction>
+            <CallToAction destination="/products" text="Vásárolok →"
+            ></CallToAction>
         </div>
     </div>
 </section>

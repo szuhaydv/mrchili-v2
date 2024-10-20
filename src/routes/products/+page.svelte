@@ -1,5 +1,5 @@
 <script>
-    import { productInfo } from "../dataService";
+    import { productInfo, categories } from "../dataService";
     import ProductCard from "./ProductCard.svelte";
 
     let showCategoryFilter = false;
@@ -12,6 +12,26 @@
             showSpicynessFilter = !showSpicynessFilter;
         }
     }
+
+    let selectedCategories = [];
+    let selectedSpiceLevels = [];
+
+    let filteredProducts = [];
+
+    function filterProducts() {
+        filteredProducts = productInfo.filter((product) => {
+            const matchesCategory = selectedCategories.length
+                ? selectedCategories.includes(product.category)
+                : true;
+            const matchesSpiceLevel = selectedSpiceLevels.length
+                ? selectedSpiceLevels.includes(product.spiceLevel)
+                : true;
+
+            return matchesCategory && matchesSpiceLevel;
+        });
+    }
+
+    $: filterProducts();
 </script>
 
 <main class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-12">
@@ -34,13 +54,13 @@
                 class="absolute rounded-2xl border-2 border-[#E6EBF0] w-full mt-2 text-md p-4 flex flex-col gap-4 bg-white z-10"
                 class:hidden={!showCategoryFilter}
             >
-                {#each productInfo as category}
+                {#each categories as category}
                     <li class="flex items-center">
                         <input
                             type="checkbox"
                             class="mr-2 w-5 h-5 cursor-pointer"
                         />
-                        {category.title}
+                        {category}
                     </li>
                 {/each}
             </ul>
@@ -82,14 +102,14 @@
             </ul>
         </div>
     </div>
-    {#each productInfo as category}
+    {#each categories as category, categoryID}
         <h2
             class="font-knewave my-8 ml-8 text-lg border-b-[#E6EBF0] border-b-2 pb-4 pl-6 pr-16 w-max"
         >
-            {category.title}
+            {category}
         </h2>
         <ul class="grid grid-cols-4 mt-4 place-items-center">
-            {#each category.products as product}
+            {#each filteredProducts.filter((product) => product.category == categoryID) as product}
                 <li>
                     <ProductCard {product} />
                 </li>

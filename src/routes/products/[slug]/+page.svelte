@@ -5,8 +5,7 @@
 
 <script>
     let id = $page.params.slug;
-    let products = productInfo.flatMap((category) => category.products);
-    let product = products.find((product) => product.id == id);
+    let product = productInfo.find((product) => product.id == id);
 </script>
 
 <main
