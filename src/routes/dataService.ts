@@ -133,13 +133,15 @@ class ChiliCategory {
 	) { }
 }
 
-class Product {
+export class Product {
 	constructor(
+		public readonly id = -1,
 		public readonly imgPath = "",
 		public readonly title = "",
 		public readonly price = 0,
 		public readonly spiceLevel = 0,
 		public readonly description = "",
+		public readonly showOnLanding = false
 		//TODO later add stock
 	) { }
 }
@@ -149,13 +151,16 @@ export let productInfo = [
 		"Chiliszósz",
 		[
 			new Product(
+				0,
 				"/vegitelet.png",
 				"Végítélet",
 				4490,
 				5,
-				"Carolina Reaper chiliszósz"
+				"Carolina Reaper chiliszósz",
+				true
 			),
 			new Product(
+				1,
 				"",
 				"Kísértés",
 				3990,
@@ -163,6 +168,7 @@ export let productInfo = [
 				"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz"
 			),
 			new Product(
+				2,
 				"",
 				"Fantom",
 				3990,
@@ -175,20 +181,25 @@ export let productInfo = [
 		"Chutney",
 		[
 			new Product(
+				3,
 				"/gangsteper.png",
 				"Gangsteper",
 				2990,
 				1,
-				"Epres-chilis chutney"
+				"Epres-chilis chutney",
+				true
 			),
 			new Product(
+				4,
 				"/barackrem.png",
 				"Barackrém",
 				2990,
 				2,
-				"Sárgabarackos-chilis chutney"
+				"Sárgabarackos-chilis chutney",
+				true
 			),
 			new Product(
+				5,
 				"",
 				"Bahamangó",
 				2990,
@@ -196,13 +207,14 @@ export let productInfo = [
 				"Mangós-chilis chutney"
 			),
 			new Product(
-				"pumpkin_spicy.png",
+				6,
+				"/pumpkin_spicy.png",
 				"Pumpkin Spicy",
 				2490,
 				2,
-				"Sütőtökös-chilis chutney"
+				"Sütőtökös-chilis chutney",
+				true
 			)
-
 		]
 	),
 	new ChiliCategory(

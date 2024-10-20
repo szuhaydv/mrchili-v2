@@ -1,8 +1,17 @@
 <script>
+    import { goto } from "$app/navigation";
+
     export let product;
 </script>
 
-<article class="w-80 rounded-lg shadow h-[46.25rem]">
+<article
+    class="w-80 rounded-lg shadow h-[46.25rem]"
+    on:click={() => goto("./products/" + product.id)}
+    tabindex={product.id}
+    on:keydown={() => (event) =>
+        event.key === "Enter" ? goto("./" + product.id) : ""}
+    role="button"
+>
     <div class="bg-[#E6EBF0] rounded-lg h-[25rem] relative">
         <img
             class="scale-150 rotate-12 absolute left-[15%] top-[-10%]"
