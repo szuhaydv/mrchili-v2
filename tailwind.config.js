@@ -12,8 +12,12 @@ export default {
   theme: {
     extend: {
       screens: {
+        "bl": "900px",
         "xxl": "1366px",
         "3xl": "1680px"
+      },
+      boxShadow: {
+        "inset-lg": "inset 4px 4px 8px rgba(0, 0, 0, 0.25)"
       }
     },
     fontFamily: {

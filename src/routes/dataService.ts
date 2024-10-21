@@ -117,7 +117,7 @@ export const gyikElements: GYIKelement[] = [
 	new GYIKelement(
 		"/delivery-white.svg",
 		"Milyen szállítási módok közül választhatok?",
-		`<b>Házhozszállítás (akár 1890 forinttól)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>GLS</li><li>MPL</li><li>Foxpost</li></ul><b>Csomagpontra történő szállítás (akár 990 forinttól)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>Foxpost</li></ul><b>Személyes átvétel (ingyenes)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>Tiszalökön</li><li>Budapesten 11. kerületben (Feneketlen-tó környéke)</li></ul>`,
+		`<b style="text-decoration: underline;">Házhozszállítás (akár 1890 forinttól)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>GLS</li><li>MPL</li><li>Foxpost</li></ul><b style="text-decoration: underline;">Csomagpontra történő szállítás (akár 990 forinttól)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>Foxpost</li></ul><b style="text-decoration: underline;">Személyes átvétel (ingyenes)</b><ul style="margin-top: 0;padding-left: 1rem;list-style-type: disc"><li>Tiszalökön</li><li>Budapesten 11. kerületben (Feneketlen-tó környéke)</li></ul>`,
 		true),
 	new GYIKelement(
 		"/market-white.svg",

@@ -50,7 +50,9 @@
     $: filterProducts(selectedCategories, selectedSpiceLevels);
 </script>
 
-<main class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-12">
+<main
+    class="relative mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-32 xxl:pt-12"
+>
     <h1 class="opacity-0 absolute">Products Page</h1>
     <div class="flex justify-center gap-8 w-full">
         <div class="relative h-fit">
@@ -126,7 +128,9 @@
         >
             {category}
         </h2>
-        <ul class="grid grid-cols-4 mt-4 place-items-center">
+        <ul
+            class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] mt-4 place-items-center gap-16 px-24"
+        >
             {#each filteredProducts.filter((product) => product.category == categoryID) as product}
                 <li>
                     <ProductCard {product} />

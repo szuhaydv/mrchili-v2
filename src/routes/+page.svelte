@@ -68,7 +68,7 @@
         <h2 class="max-w-[40rem] text-lg font-light leading-tight">
             Kóstold meg a világ elsőszámú tiszalöki chilijét!
         </h2>
-        <div class="xxl:ml-32 mb-16 xxl:mb-0 mt-8">
+        <div class="xxl:ml-32 mb-24 xxl:mb-0 mt-8">
             <CallToAction destination="/products" text="Körülnézek →"></CallToAction>
         </div>
     </div>
@@ -91,7 +91,7 @@
                     </button>
                     {#each landingProducts as product}
                     <div class="flex justify-center h-[64vh] overflow-visible">
-                        <img class="h-[75%] object-contain rotate-12 translate-x-[15%]" src={product.imgPath}
+                        <img class="w-[72%] object-contain rotate-12 translate-x-[15%]" src={product.imgPath}
                             alt={product.imgPath} />
                     </div>
                     {/each}
@@ -158,25 +158,25 @@
     {/each}
 </section>
 -->
-<section class="relative">
-    <div class="absolute z-10 top-0 w-full">
-        <h2 class="section-title mt-24 text-center">Kategóriáink</h2>
-        <ul class="flex justify-evenly w-full h-full">
-            <li class="w-[25%] flex flex-col items-center">
+<section class="relative bg-[#273036] lg:bg-transparent">
+    <div class="lg:absolute z-10 top-0 w-full">
+        <h2 class="section-title pt-12 text-center">Kategóriáink</h2>
+        <ul class="flex flex-col items-center lg:flex-row gap-8 lg:justify-evenly w-full h-full pb-12">
+            <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
                 <img class="w-full" src="/chilisauce_category.png" alt="" />
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     Chiliszósz
                 </h3>
                 <CallToAction destination="/products" text="Vásárolok →" />
             </li>
-            <li class="w-[25%] flex flex-col items-center">
+            <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
                 <img class="w-full" src="/chutney_category.png" alt="" />
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     Chutney
                 </h3>
                 <CallToAction destination="/products" text="Vásárolok →" />
             </li>
-            <li class="w-[25%] flex flex-col items-center">
+            <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
                 <img class="w-full" src="/chilisauce_category.png" alt="" />
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     BBQ
@@ -185,8 +185,8 @@
             </li>
         </ul>
     </div>
-    <svg class="w-full" width="1920" height="1096" viewBox="0 0 1920 1096" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+    <svg class="w-full hidden lg:block lg:h-[clamp(48rem,24.571rem+36.607vw,68.5rem)]" preserveAspectRatio="none"
+        width="1920" height="1096" viewBox="0 0 1920 1096" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M0 73L64 80C128 88 256 102 384 95C512 88 640 58 768 44C896 29 1024 29 1152 44C1280 58 1408 88 1536 95C1664 102 1792 88 1856 80L1920 73V1023L1856 1016C1792 1008 1664 994 1536 1001C1408 1008 1280 1038 1152 1052C1024 1067 896 1067 768 1052C640 1038 512 1008 384 1001C256 994 128 1008 64 1016L0 1023V73Z"
             fill="#273036" />
@@ -201,14 +201,15 @@
     </div>
 </section>
 <section class="relative">
-    <svg width="100%" viewBox="0 0 1920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="h-[40rem]" width="100%" preserveAspectRatio="none" viewBox="0 0 1920 620" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
         <path
             d="M1920 566.244C1520 566.244 1160.5 619.5 960.5 619.5C760.5 619.5 400 566.244 0 566.244V0L1920 0V566.244Z"
             fill="#273036" />
     </svg>
     <div class="absolute top-0 w-full overflow-x-hidden flex flex-col items-center">
         <h2 class="section-title">Vásárlás menete</h2>
-        <div class="w-[52rem] h-24 flex items-center mt-12 mb-16">
+        <div class="w-[44rem] bl:w-[52rem] h-24 flex items-center mt-12 mb-16">
             <div class="order-step animate__animated" class:animate__bounceInLeft={currentOrderInfo==0}
                 class:animate__bounceOutRight={currentOrderInfo !=0}>
                 <img class="w-16 h-16" src="/send.svg" alt="Send icon" />
@@ -225,7 +226,7 @@
                 <span class="font-semibold text-lg">...és már szállítjuk is Önhöz!</span>
             </div>
         </div>
-        <div class="text-white mt-8 w-[50vw]">
+        <div class="text-white mt-8 w-[75vw] max-w-[60rem]">
             <Steps {steps} on:click={stepOrderInfo} current={currentOrderInfo} secondary="white" light="black"
                 dark="white" />
         </div>
@@ -234,10 +235,10 @@
         </div>
     </div>
 </section>
-<section class="flex pb-12 bg-[url(/chili_bg.png)]">
+<section class="flex pb-12 bg-[url(/chili_bg.png)] min-h-[40rem]">
     <section>
         <h2 class="section-title ml-12">GYIK</h2>
-        <div class="w-[48rem] ml-12">
+        <div class="w-[48rem] max-w-[calc(100vw-6rem)] ml-12">
             <AccordionComponent {gyikElements} />
         </div>
     </section>

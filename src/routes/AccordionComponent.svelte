@@ -13,7 +13,10 @@
                     alt="icon"
                 /></svelte:fragment
             >
-            <svelte:fragment slot="summary">{element.question}</svelte:fragment>
+            <svelte:fragment slot="summary"
+                ><span class="text-md font-semibold">{element.question}</span
+                ></svelte:fragment
+            >
             <svelte:fragment slot="content"
                 >{@html element.answer}</svelte:fragment
             >

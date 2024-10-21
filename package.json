@@ -26,6 +26,8 @@
 	"type": "module",
 	"dependencies": {
 		"animate.css": "^4.1.1",
+		"dotenv": "^16.4.5",
+		"nodemailer": "^6.9.15",
 		"svelte-carousel": "^1.0.25"
 	}
 }
