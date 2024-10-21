@@ -21,7 +21,7 @@
     </nav>
     <img
         src="/logo.png"
-        class="w-40 h-40 absolute left-[11.75rem] top-[0.25rem]"
+        class="w-36 h-36 lg:w-40 lg:h-40 absolute left-[11.25rem] lg:left-[11.75rem] top-[0.25rem]"
         alt="Mr. Chili Logo"
     />
 </header>

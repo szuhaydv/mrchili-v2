@@ -15,7 +15,7 @@
 >
     <div class="bg-[#E6EBF0] rounded-lg h-[25rem] relative">
         <img
-            class="scale-150 rotate-12 absolute left-[15%] top-[-10%]"
+            class="h-full rotate-12 absolute left-1/2 -translate-x-1/2 top-[-10%]"
             src={product.imgPath}
             alt={product.imgPath}
         />

@@ -1,6 +1,7 @@
 <main
-    class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-12 h-[80vh]"
+    class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] pt-8 banner h-[80vh]"
 >
+    <div><h1 class="section-title text-center">Kapcsolat</h1></div>
     <form action="" class="flex flex-col w-[32%] gap-8">
         <input
             class="bg-[#e9f4fcd9] rounded-full h-16 pl-8"

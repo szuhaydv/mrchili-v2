@@ -137,7 +137,8 @@ export class Product {
 		public readonly shortDescription = "",
 		public readonly ingredients = "",
 		public readonly longDescription = "",
-		public readonly showOnLanding = false
+		public readonly showOnLanding = false,
+		public readonly chiliName = ""
 		//TODO later add stock
 	) { }
 }
@@ -155,12 +156,13 @@ export let productInfo = [
 		"Carolina Reaper chiliszósz",
 		"Carolina Reaper, balzsamecet, fokhagyma, só, nátrium-benzoát",
 		"A világ egyik legerősebb chilije, a Kaszás nem ismer kegyelmet, kemény próbatétel elé állítja a halandókat. A Végítélet kiválóan alkalmas az utolsó vacsorák ízesítéséhez. Pörköltbe, bográcsételekbe és levesekbe adagolva igazán különleges ízélményben lehet részetek.",
-		true
+		true,
+		"Carolina Reaper"
 	),
 	new Product(
 		1,
 		0,
-		"",
+		"/kisertes.png",
 		"Kísértés",
 		3990,
 		4,
@@ -171,7 +173,7 @@ export let productInfo = [
 	new Product(
 		2,
 		0,
-		"",
+		"/fantom.png",
 		"Fantom",
 		3990,
 		4,
@@ -189,7 +191,8 @@ export let productInfo = [
 		"Epres-chilis chutney",
 		"eper, Habanero, gyömbér, balzsamecet, fokhagyma, só, cukor, citromsav, nátrium-benzoát",
 		"A mézédes eper, a tüzes Habanero és a pikáns gyömbér találkozásakor toroksimogató csoda történik. A Gangsteper nem csalja elő a könnyeidet, csak néha-néha odacsíp. A vasárnapi palacsinta és túrógombóc nélkülözhetetlen társa, de sült sertéshúsokhoz is remekül passzol.",
-		true
+		true,
+		"Habanero Red"
 	),
 	new Product(
 		4,
@@ -201,12 +204,13 @@ export let productInfo = [
 		"Sárgabarackos-chilis chutney",
 		"sárgabarack, Bhut Jolokia Yellow, balzsamecet, méz, vöröshagyma, fokhagyma, só, citromsav, nátrium-benzoát",
 		"Zamatos sárgabarack és lángoló Bhut Jolokia nászából született a palackba zárt, barátságos szellem, a Barackrém. Gyümölcsösségével elvarázsol, majd tüzességével enyhén fejbe kólint. Barackos húsok és sült csirkés ételek megbolondításához igazán jó választás.",
-		true
+		true,
+		"Bhut Jolokia Yellow"
 	),
 	new Product(
 		5,
 		1,
-		"",
+		"/bahamango.png",
 		"Bahamangó",
 		2990,
 		2,
@@ -222,6 +226,7 @@ export let productInfo = [
 		"Sütőtökös-chilis chutney",
 		"sütőtök, Bahamian Goat Pepper, balzsamecet, vöröshagyma, fokhagyma, gyömbér, méz, szerecsendió, só, citromsav, nátrium-benzoát",
 		"Sütőtök illata árad a konyhából egy borús őszi estén. A szerecsendió, gyömbér és chili hármasa tökéletesen harmonizál a mézes tökpürével. Ha szereted a különleges ízvilágú kávékat, egy Pumpkin Spicy Latte-t mindenképp készíts a szósszal, de a melegszendvicsedet is garantáltan feldobja.",
-		true
+		true,
+		"Bahamian Goat Pepper"
 	)
 ]

@@ -12,6 +12,7 @@ export default {
   theme: {
     extend: {
       screens: {
+        "xxl": "1366px",
         "3xl": "1680px"
       }
     },
