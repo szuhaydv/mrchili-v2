@@ -3,13 +3,29 @@
     import ProductCard from "./ProductCard.svelte";
 
     let showCategoryFilter = false;
-    let showSpicynessFilter = false;
+    let showSpicinessFilter = false;
 
     function toggle(filterNo) {
         if (filterNo == 0) {
             showCategoryFilter = !showCategoryFilter;
         } else if (filterNo == 1) {
-            showSpicynessFilter = !showSpicynessFilter;
+            showSpicinessFilter = !showSpicinessFilter;
+        }
+    }
+
+    function selectCategory(id) {
+        if (selectedCategories.includes(id)) {
+            selectedCategories = selectedCategories.filter((el) => el != id);
+        } else {
+            selectedCategories = [...selectedCategories, id];
+        }
+    }
+
+    function selectSpiciness(id) {
+        if (selectedSpiceLevels.includes(id)) {
+            selectedSpiceLevels = selectedSpiceLevels.filter((el) => el != id);
+        } else {
+            selectedSpiceLevels = [...selectedSpiceLevels, id];
         }
     }
 
@@ -18,7 +34,7 @@
 
     let filteredProducts = [];
 
-    function filterProducts() {
+    function filterProducts(selectedCategories, selectedSpiceLevels) {
         filteredProducts = productInfo.filter((product) => {
             const matchesCategory = selectedCategories.length
                 ? selectedCategories.includes(product.category)
@@ -31,7 +47,7 @@
         });
     }
 
-    $: filterProducts();
+    $: filterProducts(selectedCategories, selectedSpiceLevels);
 </script>
 
 <main class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-12">
@@ -54,9 +70,10 @@
                 class="absolute rounded-2xl border-2 border-[#E6EBF0] w-full mt-2 text-md p-4 flex flex-col gap-4 bg-white z-10"
                 class:hidden={!showCategoryFilter}
             >
-                {#each categories as category}
+                {#each categories as category, index}
                     <li class="flex items-center">
                         <input
+                            on:click={() => selectCategory(index)}
                             type="checkbox"
                             class="mr-2 w-5 h-5 cursor-pointer"
                         />
@@ -80,11 +97,12 @@
             </button>
             <ul
                 class="absolute w-full rounded-2xl border-2 border-[#E6EBF0] mt-2 text-md p-4 flex flex-col gap-4 bg-white z-10"
-                class:hidden={!showSpicynessFilter}
+                class:hidden={!showSpicinessFilter}
             >
-                {#each Array.from({ length: 6 }, (_, i) => i) as spiceLevel}
+                {#each Array.from({ length: 6 }, (_, i) => i) as spiceLevel, index}
                     <li class="flex gap-2 items-center m-auto">
                         <input
+                            on:click={() => selectSpiciness(index)}
                             type="checkbox"
                             class="mr-2 w-5 h-5 cursor-pointer"
                         />
