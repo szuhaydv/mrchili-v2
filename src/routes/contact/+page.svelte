@@ -37,7 +37,7 @@
             />
             <input
                 class="bg-[#e9f4fcd9] rounded-full h-16 pl-8 shadow-inset-lg"
-                placeholder="E-mail"
+                placeholder="Email"
                 type="text"
             />
             <textarea

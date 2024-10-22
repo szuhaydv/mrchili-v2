@@ -124,6 +124,7 @@
     </div>
     {#each categories as category, categoryID}
         <h2
+            id={category.toLowerCase()}
             class="font-knewave my-8 ml-8 text-lg border-b-[#E6EBF0] border-b-2 pb-4 pl-6 pr-16 w-max"
         >
             {category}
@@ -137,6 +138,9 @@
                 </li>
             {/each}
         </ul>
+        {#if category == "BBQ"}
+            <img class="max-w-sm" src="/coming_soon.png" alt="coming soon" />
+        {/if}
     {/each}
 </main>
 

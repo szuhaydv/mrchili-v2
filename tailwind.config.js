@@ -2,11 +2,13 @@
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import { join } from 'path';
 
+import flowbitePlugin from 'flowbite/plugin'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./src/**/*.{html,js,svelte}",
-
+    './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
     join(require.resolve('@skeletonlabs/skeleton') + '/../**/*.{html,js,svelte,ts}')
   ],
   theme: {
@@ -37,7 +39,8 @@ export default {
   plugins: [
     skeleton({
       themes: { preset: ["skeleton"] }
-    })
+    }),
+    flowbitePlugin
   ],
 }
 

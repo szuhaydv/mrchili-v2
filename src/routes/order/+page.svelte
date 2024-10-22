@@ -3,7 +3,7 @@
 </script>
 
 <main
-    class="min-h-[calc(100vh-6rem)] relative mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-4"
+    class="min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] relative mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-4"
 >
     <h1 class="section-title text-center">Rendelés</h1>
     <div class="flex justify-evenly">

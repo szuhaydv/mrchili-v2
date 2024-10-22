@@ -60,14 +60,3 @@
         </div>
     </footer>
 </article>
-
-<style>
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    footer {
-        height: 36%;
-    }
-</style>
