@@ -1,10 +1,20 @@
-<footer class="bg-white h-64 w-full flex p-8">
-    <section class="w-[20vw]">
-        <div class="flex gap-4 font-knewave text-lg items-center mb-2">
-            <img class="w-24 h-24" src="/logo.png" alt="logo" />
-            <h2 class="break-keep">Mr. Chili</h2>
+<footer class="bg-white w-full flex p-2 xxs:p-4 md:p-8 text-slate-500">
+    <section
+        class="w-fit flex flex-col items-center sm:items-start mr-1 xxs:mr-4"
+    >
+        <div class="flex gap-4 items-center mb-2">
+            <img
+                class="w-12 h-12 xxs:w-16 xxs:h-16 object-fit xxsm:w-24 xxsm:h-24"
+                src="/logo.png"
+                alt="logo"
+            />
+            <h2
+                class="font-knewave text-black hidden sm:block text-md sm:text-lg break-keep whitespace-nowrap"
+            >
+                Mr. Chili
+            </h2>
         </div>
-        <ul class="flex gap-4">
+        <ul class="w-fit flex-col xxsm:flex-row flex gap-4">
             <li>
                 <a
                     class="w-6 h-6"
@@ -46,12 +56,16 @@
             </li>
         </ul>
         <div class="flex mt-4">
-            <img src="/mail.svg" alt="mail icon" class="w-6 h-6 mr-4" />
-            <p>mr.chili.info@gmail.com</p>
+            <img
+                src="/mail.svg"
+                alt="mail icon"
+                class="w-6 h-6 mr-4 hidden sm:block"
+            />
+            <p class="hidden sm:block text-black">mr.chili.info@gmail.com</p>
         </div>
     </section>
-    <div class="flex w-full justify-evenly">
-        <section class="text-md flex flex-col gap-2">
+    <div class="flex flex-1 justify-evenly">
+        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
             <h3>Főoldal</h3>
             <ul class="flex flex-col gap-2">
                 <li><a href="/#categories">Kategóriák</a></li>
@@ -61,7 +75,7 @@
                 <li><a href="/#contact">Kapcsolat</a></li>
             </ul>
         </section>
-        <section class="text-md flex flex-col gap-2">
+        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
             <a href="/products">
                 <h3>Termékeink</h3>
             </a>
@@ -71,7 +85,7 @@
                 <li><a href="/products#bbq">BBQ</a></li>
             </ul>
         </section>
-        <section class="text-md flex flex-col gap-2">
+        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
             <a href="/contact">
                 <h3>Kapcsolat</h3>
             </a>

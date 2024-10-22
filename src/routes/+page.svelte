@@ -59,28 +59,32 @@
 </script>
 
 <main
-    class="mx-8 lg:mx-12 xxl:h-[76vh] banner bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem] flex flex-col xxl:flex-row mb-12"
+    class="mx-4 xxs:mx-8 lg:mx-12 xxl:h-[76vh] banner bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem] flex flex-col xxl:flex-row mb-12"
 >
     <div
-        class="flex flex-col justify-center mx-auto xxl:ml-[clamp(2rem,-22.657rem+28.881vw,12rem)] mt-40 xxl:mt-0 text-center xxl:text-left"
+        class="flex flex-col justify-center mx-auto xxl:ml-[clamp(2rem,-22.657rem+28.881vw,12rem)] mt-32 sm:mt-40 xxl:mt-0 text-center xxl:text-left"
     >
-        <h1 class="text-xl font-semibold block leading-tight">
+        <h1
+            class="text-md xxs:text-lg sm:text-sxl md:text-xl font-semibold block leading-tight"
+        >
             Kézműves termékek <br /> széles választéka
         </h1>
-        <h2 class="max-w-[40rem] text-lg font-light leading-tight">
+        <h2
+            class="max-w-[40rem] mt-2 md:mt-0 text-[14px] xxs:text-[18px] sm:text-md md:text-lg font-light leading-tight px-6 xxs:px-4 sm:px-0"
+        >
             Kóstold meg a világ elsőszámú tiszalöki chilijét!
         </h2>
-        <div class="xxl:ml-32 mb-24 xxl:mb-0 mt-8">
+        <div class="xxl:ml-32 mb-16 xxs:mb-24 xxl:mb-0 mt-8">
             <CallToAction destination="/products" text="Körülnézek →"
             ></CallToAction>
         </div>
     </div>
-    <div class="flex mx-auto mb-12 xxl:mb-0">
+    <div class="flex flex-col items-center sm:flex-row mx-auto mb-12 xxl:mb-0">
         <div
-            class="w-[clamp(24rem,4.274rem+23.105vw,32rem)] h-full flex items-center relative mx-auto"
+            class="w-[18rem] xxs:w-[20rem] md:w-[clamp(24rem,4.274rem+23.105vw,32rem)] h-full flex items-center relative mx-auto"
         >
             <div
-                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10"
+                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10 pb-8 xxl:pb-0"
             >
                 {#if mounted}
                     <Carousel
@@ -90,14 +94,14 @@
                         autoplayDuration={5000}
                     >
                         <button
-                            class="w-20 h-20 rounded-3xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
+                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl xxs:rounded-3xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
                             slot="prev"
                             on:click={() => carousel.goToPrev()}
                         >
                             ❮
                         </button>
                         <button
-                            class="w-20 h-20 rounded-3xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
+                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
                             slot="next"
                             on:click={() => carousel.goToNext()}
                         >
@@ -114,7 +118,10 @@
                                 />
                             </div>
                         {/each}
-                        <div slot="dots" class="custom-dots flex items-center">
+                        <div
+                            slot="dots"
+                            class="hidden xxl:flex custom-dots items-center"
+                        >
                             {#each Array(landingProducts.length) as _, pageIndex (pageIndex)}
                                 <button on:click={() => circleClick(pageIndex)}>
                                     <div
@@ -144,7 +151,7 @@
             <img class="w-full" src="/splash.png" alt="splash background" />
         </div>
         <div
-            class="mt-[20%] h-max ml-4 w-40 p-4 rounded-2xl bg-white shadow-lg flex flex-col gap-4 z-20"
+            class="mt-[2rem] sm:mt-[20%] h-max ml-0 sm:ml-4 w-40 p-4 rounded-2xl bg-white shadow-lg flex flex-col gap-4 z-20"
         >
             <h3 class="text-md text-center font-semibold">
                 {landingProducts[currentPageIndex].title}
@@ -239,7 +246,9 @@
     </svg>
 </section>
 <section id="reviews">
-    <h2 class="section-title ml-12">Visszajelzések</h2>
+    <h2 class="section-title text-center sm:text-start sm:ml-12">
+        Visszajelzések
+    </h2>
     <div
         class="flex flex-col gap-6 items-center justify-center xl:flex-row xl:gap-12 mb-16"
     >
@@ -265,15 +274,22 @@
     <div
         class="absolute top-0 w-full overflow-x-hidden flex flex-col items-center"
     >
-        <h2 class="section-title">Vásárlás menete</h2>
-        <div class="w-[44rem] bl:w-[52rem] h-24 flex items-center mt-12 mb-16">
+        <h2 class="section-title text-sxl sm:text-xl">Vásárlás menete</h2>
+        <div
+            class="w-[19.5rem] xxs:w-[24rem] sm:w-[36rem] md:w-[44rem] bl:w-[52rem] h-24 flex items-center my-8 sm:mt-12 sm:mb-16"
+        >
             <div
                 class="order-step animate__animated"
                 class:animate__bounceInLeft={currentOrderInfo == 0}
                 class:animate__bounceOutRight={currentOrderInfo != 0}
             >
-                <img class="w-16 h-16" src="/send.svg" alt="Send icon" />
-                <span class="font-semibold text-lg"
+                <img
+                    class="w-8 h-8 sm:w-16 sm:h-16"
+                    src="/send.svg"
+                    alt="Send icon"
+                />
+                <span
+                    class="font-semibold text-center text-sm sm:text-md md:text-lg"
                     >Adjon fel egy rendelést weboldalunkon</span
                 >
             </div>
@@ -282,8 +298,12 @@
                 class:animate__bounceInLeft={currentOrderInfo == 1}
                 class:animate__bounceOutRight={currentOrderInfo != 1}
             >
-                <img class="w-16 h-16" src="/bank.svg" alt="Bank icon" />
-                <span class="font-semibold text-lg"
+                <img
+                    class="w-8 h-8 sm:w-16 sm:h-16"
+                    src="/bank.svg"
+                    alt="Bank icon"
+                />
+                <span class="font-semibold text-sm sm:text-md md:text-lg"
                     >Utalja el a rendlés összegét</span
                 >
             </div>
@@ -292,13 +312,19 @@
                 class:animate__bounceInLeft={currentOrderInfo == 2}
                 class:animate__bounceOutRight={currentOrderInfo != 2}
             >
-                <img class="w-16 h-16" src="/deliver.svg" alt="Delivery icon" />
-                <span class="font-semibold text-lg"
+                <img
+                    class="w-8 h-8 sm:w-16 sm:h-16"
+                    src="/deliver.svg"
+                    alt="Delivery icon"
+                />
+                <span class="font-semibold text:sm sm:text-md md:text-lg"
                     >...és már szállítjuk is Önhöz!</span
                 >
             </div>
         </div>
-        <div class="text-white mt-8 w-[75vw] max-w-[60rem]">
+        <div
+            class="text-white mt-8 w-[96vw] xxs:w-[85vw] sm:w-[75vw] max-w-[60rem]"
+        >
             <Steps
                 {steps}
                 on:click={stepOrderInfo}
@@ -322,30 +348,35 @@
         class="w-[90vw] flex flex-col items-center mx-auto xxl:w-[60vw]"
     >
         <h2 class="section-title">GYIK</h2>
-        <div class="w-[48rem] h-full max-w-[calc(100vw-6rem)]">
+        <div
+            class="w-[48rem] h-full max-w-[96vw] xxsm:max-w-[calc(100vw-6rem)]"
+        >
             <AccordionComponent {gyikElements} />
         </div>
     </section>
-    <section id="contact" class="w-[40vw] flex flex-col items-center">
+    <section
+        id="contact"
+        class="w-full xxl:w-[40vw] mb-8 xxl:mb-0 flex flex-col items-center"
+    >
         <h2 class="section-title">Kapcsolat</h2>
         <form
             class="bg-white rounded-2xl p-6 flex flex-col gap-6 w-max"
             action=""
         >
             <input
-                class="border border-[#d9d9d9] rounded-lg px-4 w-[20rem] h-10"
+                class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] h-10"
                 maxlength="16"
                 type="text"
                 placeholder="Név"
             />
             <input
-                class="border border-[#d9d9d9] rounded-lg px-4 w-[20rem] h-10"
+                class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] h-10"
                 maxlength="16"
                 type="text"
                 placeholder="Email"
             />
             <textarea
-                class="border border-[#d9d9d9] rounded-lg px-4 w-[20rem] max-h-40 min-h-40 pt-4"
+                class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] max-h-40 min-h-40 pt-4"
                 placeholder="Üzenet"
             />
             <button

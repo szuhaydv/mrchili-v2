@@ -14,6 +14,8 @@ export default {
   theme: {
     extend: {
       screens: {
+        "xxs": "400px",
+        "xxsm": "480px",
         "bl": "900px",
         "xxl": "1366px",
         "3xl": "1680px"

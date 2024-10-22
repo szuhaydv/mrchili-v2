@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { GMAIL_USERNAME, GMAIL_PASSWORD } from '$env/static/private';
+import { GMAIL_USERNAME, GMAIL_PASSWORD } from '$env/dynamic/private';
 
 export async function sendEmail(options) {
     const transporter = nodemailer.createTransport({

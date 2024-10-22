@@ -21,9 +21,9 @@
 
 <header class="sticky bg-[#d3def5] top-0 z-30">
     <nav
-        class="w-full flex justify-end bl:justify-start items-center h-12 lg:h-[4rem] relative pr-12 lg:pr-24"
+        class="w-full flex justify-end bl:justify-start items-center h-12 lg:h-[4rem] relative pr-12 sm:pr-16 md:pr-12 bl:pr-16 lg:pr-20 xxl:pr-24"
     >
-        <div class="block 2xl:hidden absolute left-8 sm:left-16">
+        <div class="block md:hidden absolute left-12 sm:left-16">
             <Hamburger
                 on:click={handleSidebarToggle}
                 open={isHamburgerClicked}
@@ -37,7 +37,7 @@
             <h2 class="font-knewave text-md xl:text-lg">Mr. Chili</h2>
         </a>
         <div
-            class="hidden sm:flex gap-4 xl:gap-[clamp(1.5rem,-0.833rem+4.861vw,5rem)]"
+            class="hidden md:flex gap-4 xl:gap-[clamp(1.5rem,-0.833rem+4.861vw,5rem)]"
         >
             {#each routes as route}
                 <a
@@ -59,11 +59,11 @@
     </nav>
     <a
         href="/"
-        class="z-20 left-1/2 -translate-x-1/2 absolute sm:left-[7.75rem] sm:translate-x-0 lg:left-[11.75rem] top-[0.25rem] p-2 bg-[#d3def5] rounded-full"
+        class="z-20 left-1/2 -translate-x-1/2 absolute md:left-[7.75rem] md:translate-x-0 lg:left-[11.75rem] top-[0.25rem] p-2 bg-[#d3def5] rounded-full"
     >
         <img
             src="/logo.png"
-            class="w-36 h-36 lg:w-40 lg:h-40 object-contain"
+            class="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain"
             alt="Mr. Chili Logo"
         />
     </a>
