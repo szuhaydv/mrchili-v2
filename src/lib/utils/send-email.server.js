@@ -1,18 +1,21 @@
 import nodemailer from 'nodemailer';
-import { GMAIL_USERNAME, GMAIL_PASSWORD } from '$env/dynamic/private';
+import { env } from '$env/dynamic/private';
+
+const emailUsername = env.GMAIL_USERNAME;
+const emailPassword = env.GMAIL_PASSWORD;
 
 export async function sendEmail(options) {
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: GMAIL_USERNAME,
-            pass: GMAIL_PASSWORD
+            user: emailUsername,
+            pass: emailPassword
         }
     });
 
     const mailOptions = {
-        from: GMAIL_USERNAME,
+        from: emailUsername,
         to: options.to,
         subject: options.subject,
         text: options.text,
