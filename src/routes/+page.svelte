@@ -122,6 +122,7 @@
                             slot="dots"
                             class="hidden xxl:flex custom-dots items-center"
                         >
+                            <!--
                             {#each Array(landingProducts.length) as _, pageIndex (pageIndex)}
                                 <button on:click={() => circleClick(pageIndex)}>
                                     <div
@@ -144,6 +145,7 @@
                                     </div>
                                 {/if}
                             {/each}
+                            -->
                         </div>
                     </Carousel>
                 {/if}

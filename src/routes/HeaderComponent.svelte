@@ -11,10 +11,8 @@
         duration: 200,
         easing: sineIn,
     };
-    let isHamburgerClicked = false;
 
-    function handleSidebarToggle() {
-        isHamburgerClicked = !isHamburgerClicked;
+    function toggleSidebar() {
         isSidebarHidden = !isSidebarHidden;
     }
 </script>
@@ -25,8 +23,8 @@
     >
         <div class="block md:hidden absolute left-12 sm:left-16">
             <Hamburger
-                on:click={handleSidebarToggle}
-                open={isHamburgerClicked}
+                on:click={toggleSidebar}
+                open={!isSidebarHidden}
                 duoLine={false}
             />
         </div>
@@ -47,11 +45,11 @@
             {/each}
         </div>
         <a class="relative w-8 h-8 lg:w-10 lg:h-10 ml-2" href="/order">
-            {#if userCart.length}
+            {#if $userCart.length}
                 <div
-                    class="absolute w-5 h-5 rounded-full bg-[#ff0000] top-0 right-0 flex items-center justify-center"
+                    class="absolute w-5 h-5 rounded-full bg-[#ff0000] top-0 right-0 flex items-center justify-center text-white"
                 >
-                    {userCart.length}
+                    {$userCart.length}
                 </div>
             {/if}
             <img src="/cart.svg" alt="Cart icon" />
@@ -77,14 +75,10 @@
     class="bg-[#1E3E62]"
 >
     <div class="flex items-center">
-        <CloseButton on:click={handleSidebarToggle} class="mb-4 text-white" />
+        <CloseButton on:click={toggleSidebar} class="mb-4 text-white" />
     </div>
     <ul class="flex flex-col gap-8 p-4 text-md text-white">
-        <a
-            href="/"
-            on:click={handleSidebarToggle}
-            class="flex items-center gap-4"
-        >
+        <a href="/" on:click={toggleSidebar} class="flex items-center gap-4">
             <svg
                 class="w-10 h-10"
                 viewBox="0 0 24 24"
@@ -123,7 +117,7 @@
         >
         <a
             href="/products"
-            on:click={handleSidebarToggle}
+            on:click={toggleSidebar}
             class="flex items-center gap-4"
         >
             <svg
@@ -165,7 +159,7 @@
         </a>
         <a
             href="/contact"
-            on:click={handleSidebarToggle}
+            on:click={toggleSidebar}
             class="flex items-center gap-4"
         >
             <svg
@@ -188,7 +182,7 @@
         >
         <a
             href="/about"
-            on:click={handleSidebarToggle}
+            on:click={toggleSidebar}
             class="flex items-center gap-4"
         >
             <svg
@@ -213,7 +207,7 @@
         >
         <a
             href="/order"
-            on:click={handleSidebarToggle}
+            on:click={toggleSidebar}
             class="flex items-center gap-4"
         >
             <svg

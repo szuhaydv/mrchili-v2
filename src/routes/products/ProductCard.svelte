@@ -1,12 +1,31 @@
 <script>
     import { goto } from "$app/navigation";
+    import { userCart, BuyProduct } from "../cartService";
 
     export let product;
+
+    function addToCart(event, product) {
+        const input = event.currentTarget.previousElementSibling;
+        const quantity = input.value;
+        userCart.update((cart) => {
+            const index = cart.findIndex(
+                (el) => el.productType.id == product.id,
+            );
+            if (index == -1) {
+                const newProduct = new BuyProduct(product, quantity);
+                return [...cart, newProduct];
+            } else {
+                const currentCount = Number(cart[index].productCount);
+                cart[index].productCount = currentCount + Number(quantity);
+                return cart;
+            }
+        });
+    }
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
 <article
-    class="w-72 md:w-80 rounded-lg shadow-lg h-[46.25rem]"
+    class="w-72 md:w-80 rounded-lg shadow-lg h-[46.25rem] flex flex-col"
     on:click={() => goto("./products/" + product.id)}
     tabindex="0"
     on:keydown={(event) =>
@@ -27,7 +46,7 @@
             {product.title}
         </h2>
     </header>
-    <footer class="flex flex-col gap-4 pt-4">
+    <footer class="flex flex-col flex-1 gap-4 pt-4">
         <ul class="flex justify-center">
             {#each Array.from({ length: 5 }, (_, i) => i) as current}
                 <li>
@@ -47,14 +66,19 @@
         >
             {product.price} Ft
         </h3>
-        <div class="flex h-[4.5rem] shadow mx-5 mt-auto">
+        <div class="flex h-[4.5rem] shadow mx-5 mt-auto mb-8">
             <input
                 class="flex stroke-none w-[4.5rem] text-center bg-[#E6EBF0]"
                 type="number"
                 value="1"
+                max="10"
+                min="1"
+                on:click|stopPropagation
                 style="-webkit-appearance: none;"
             />
-            <button class="bg-[#d00000] text-white font-bold text-md w-full"
+            <button
+                on:click|stopPropagation={(e) => addToCart(e, product)}
+                class="bg-[#d00000] text-white font-bold text-md w-full"
                 >Kosárhoz adom</button
             >
         </div>
