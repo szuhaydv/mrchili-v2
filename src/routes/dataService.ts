@@ -167,8 +167,8 @@ export let productInfo = [
 		3990,
 		4,
 		"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz",
-		"",
-		""
+		"Trinidad Moruga Scorpion Yellow, Bhut Jolokia Yellow, balzsamecet, fokhagyma, só, nátrium-benzoát",
+		"Trinidad szigetén pihensz a homokban, mikor hirtelen arra eszmélsz, hogy egy skorpió végigfut a karodon. Veszélyben vagy, de végül engedsz a Kísértésnek, ami a rabjává tesz. Mire észbe kapsz, már nem tudod elképzelni a gulyáslevest, a pörköltet vagy a szendvicsedet nélküle."
 	),
 	new Product(
 		2,
@@ -178,8 +178,8 @@ export let productInfo = [
 		3990,
 		4,
 		"Bhut Yolokia chiliszósz",
-		"",
-		""
+		"Bhut Jolokia Red, balzsamecet, fokhagyma, só, nátrium-benzoát",
+		"Egyedül vagy otthon, mikor koppanást hallasz a szoba sarkából. Nem látsz senkit, de érzed, hogy valami nincs rendjén. Elkap a borzongás, ahogy a Fantom átsuhan a testeden, próbára téve vétlen ízlelőbimbóidat. A túlvilági bizsergés úgy megigéz, hogy ezentúl minden melegszendvicsben és hamburgerben érezni akarod."
 	),
 	new Product(
 		3,
@@ -214,7 +214,9 @@ export let productInfo = [
 		"Bahamangó",
 		2990,
 		2,
-		"Mangós-chilis chutney"
+		"Mangós-chilis chutney",
+		"mangó, Bahamian Goat Pepper, Scotch Bonnet, narancslé, cukor, méz, vöröshagyma, só, citromsav, nátrium-benzoát",
+		"Lágyan hullámzó óceán, fehérhomokos part és egy finom koktél. A Bahamangó egy idilli nyaralásra inivitál az ízek színes világába. Akár a sülthúsodat locsolod meg vele , akár a fagyidra csurgatod, nem fogsz csalódni a mangós csábításban."
 	),
 	new Product(
 		6,

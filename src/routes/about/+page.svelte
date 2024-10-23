@@ -1,5 +1,5 @@
 <main
-    class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-12 min-h-[calc(100vh-6rem)] mb-8"
+    class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 min-h-[calc(100vh-6rem)] mb-8"
 >
     <h1 class="section-title text-center">
         Ismerd meg a Mr. Chili birodalmat!
@@ -62,18 +62,3 @@
         </section>
     </div>
 </main>
-
-<style>
-    .banner {
-        -webkit-mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-        mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-    }
-</style>

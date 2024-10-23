@@ -63,7 +63,7 @@
     >
         <img
             src="/logo.png"
-            class="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain"
+            class="w-14 h-14 sm:w-18 sm:h-18 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain"
             alt="Mr. Chili Logo"
         />
     </a>

@@ -219,14 +219,17 @@
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     Chutney
                 </h3>
-                <CallToAction destination="/products" text="Vásárolok →" />
+                <CallToAction
+                    destination="/products#chutney"
+                    text="Vásárolok →"
+                />
             </li>
             <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
                 <img class="w-full" src="/coming_soon.png" alt="coming soon" />
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     BBQ
                 </h3>
-                <CallToAction destination="/products" text="Vásárolok →" />
+                <CallToAction destination="/products#bbq" text="Vásárolok →" />
             </li>
         </ul>
     </div>
@@ -304,7 +307,7 @@
                     alt="Bank icon"
                 />
                 <span class="font-semibold text-sm sm:text-md md:text-lg"
-                    >Utalja el a rendlés összegét</span
+                    >Utalja el a rendelés összegét</span
                 >
             </div>
             <div

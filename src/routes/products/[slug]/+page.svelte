@@ -9,18 +9,22 @@
 </script>
 
 <main
-    class="mx-8 lg:mx-12 h-[90vh] banner bg-white rounded-[3rem] flex justify-evenly mb-4 pt-32"
+    class="mx-2 xxs:mx-8 lg:mx-12 min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] banner bg-white rounded-[3rem] flex flex-col md:flex-row justify-evenly mb-8 pt-16 md:pt-32"
 >
     {#if product}
-        <div class="w-[40rem] h-[40rem] bg-[#E6EBF0]">
+        <div
+            class="aspect-square w-[80vw] self-center md:self-start h-[calc(100%-32rem)] bl:h-[calc(100%-24rem)] xl:h-[calc(100%-10rem)] md:ml-8 mb-8 bg-[#E6EBF0] max-w-[40rem]"
+        >
             <img
                 class="w-full h-full object-contain"
                 src={product.imgPath}
                 alt={product.imgPath}
             />
         </div>
-        <div class="w-[40rem] flex flex-col gap-6">
-            <h1 class="text-xl leading-tight">{product.title}</h1>
+        <div
+            class="w-full overflow-hidden px-8 flex flex-col items-center md:items-start gap-6 mb-8"
+        >
+            <h1 class="text-sxl xxs:text-xl leading-tight">{product.title}</h1>
             <ul class="flex gap-4">
                 {#each Array.from({ length: 5 }, (_, id) => id) as fire}
                     <img
@@ -32,11 +36,18 @@
                     />
                 {/each}
             </ul>
-            <p class="text-lg"><i>{product.shortDescription}</i></p>
-            <p class="text-md"><b>Összetevők:</b> {product.ingredients}</p>
-            <p class="text-md font-light">{product.longDescription}</p>
+            <p class="text-md lg:text-lg"><i>{product.shortDescription}</i></p>
+            <p class="text-sm lg:text-md">
+                <b>Összetevők:</b>
+                {product.ingredients}
+            </p>
+            <p class="text-sm lg:text-md font-light">
+                {product.longDescription}
+            </p>
             <span class="text-[#ff0000] text-lg">{product.price} Ft</span>
-            <div class="flex h-[4.5rem] w-[32rem] shadow mx-5">
+            <div
+                class="flex h-[4.5rem] w-[16rem] xxs:w-[20rem] xl:w-[32rem] self-center shadow mx-5"
+            >
                 <input
                     class="flex stroke-none w-[4.5rem] text-center bg-[#E6EBF0]"
                     type="number"
@@ -50,23 +61,3 @@
         </div>
     {/if}
 </main>
-
-<style>
-    .banner {
-        -webkit-mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-        mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-</style>

@@ -6,7 +6,7 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
 <article
-    class="w-80 rounded-lg shadow h-[46.25rem]"
+    class="w-72 md:w-80 rounded-lg shadow-lg h-[46.25rem]"
     on:click={() => goto("./products/" + product.id)}
     tabindex="0"
     on:keydown={(event) =>

@@ -51,10 +51,12 @@
 </script>
 
 <main
-    class="relative mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-32 xxl:pt-12"
+    class="relative mx-2 xxs:mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 md:pt-32 xxl:pt-12"
 >
     <h1 class="opacity-0 absolute">Products Page</h1>
-    <div class="flex justify-center gap-8 w-full">
+    <div
+        class="flex flex-col items-center md:flex-row justify-center gap-8 w-full"
+    >
         <div class="relative h-fit">
             <button
                 class="pl-4 pr-8 py-2 flex items-center border-2 border-[#E6EBF0] rounded-2xl"
@@ -130,7 +132,7 @@
             {category}
         </h2>
         <ul
-            class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] mt-4 place-items-center gap-16 px-24"
+            class="grid grid-cols-[repeat(auto-fill,minmax(19rem,1fr))] xxs:grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] mt-4 place-items-center gap-16 px-0 xxs:px-2 xxsm:px-12 md:px-24"
         >
             {#each filteredProducts.filter((product) => product.category == categoryID) as product}
                 <li>
@@ -139,22 +141,11 @@
             {/each}
         </ul>
         {#if category == "BBQ"}
-            <img class="max-w-sm" src="/coming_soon.png" alt="coming soon" />
+            <img
+                class="w-[25rem] max-w-[90%]"
+                src="/coming_soon.png"
+                alt="coming soon"
+            />
         {/if}
     {/each}
 </main>
-
-<style>
-    .banner {
-        -webkit-mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-        mask-image: radial-gradient(
-            circle at 13.75rem 1.25rem,
-            transparent 5.25rem,
-            black 5.3125rem
-        );
-    }
-</style>

@@ -38,11 +38,15 @@
                     id="delivery"
                     bind:value={deliveryOption}
                 >
-                    <option value="Házhozszállítás">Házhozszállítás</option>
-                    <option value="Csomagponti Átvétel"
-                        >Csomagponti átvétel</option
+                    <option value="Házhozszállítás"
+                        >Házhozszállítás - 2290Ft</option
                     >
-                    <option value="Személyes Átvétel">Személyes Átvétel</option>
+                    <option value="Csomagponti Átvétel"
+                        >Csomagponti átvétel - 1290Ft-tól</option
+                    >
+                    <option value="Személyes Átvétel"
+                        >Személyes Átvétel - Ingyenes</option
+                    >
                 </select>
             </div>
             {#if deliveryOption == "Házhozszállítás"}
@@ -54,16 +58,11 @@
                             type="radio"
                             name="group"
                         />
-                        <label for="gls">GLS</label>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <input
-                            class="w-5 h-5 cursor-pointer"
-                            id="foxpost"
-                            type="radio"
-                            name="group"
-                        />
-                        <label for="foxpost">Foxpost</label>
+                        <label
+                            for="gls"
+                            class="text-md font-semibold flex gap-2"
+                            >GLS<span class="font-light"> 2290Ft</span></label
+                        >
                     </li>
                 </ul>
             {:else if deliveryOption == "Csomagponti Átvétel"}
@@ -75,7 +74,7 @@
                             type="radio"
                             name="group"
                         />
-                        <label for="gls">GLS</label>
+                        <label for="gls">GLS - 2190Ft</label>
                     </li>
                     <li class="flex items-center gap-2">
                         <input
@@ -84,7 +83,19 @@
                             type="radio"
                             name="group"
                         />
-                        <label for="foxpost">Foxpost</label>
+                        <label for="foxpost">Foxpost - 1290Ft</label>
+                    </li>
+                </ul>
+            {:else}
+                <ul class="flex gap-8">
+                    <li class="flex items-center gap-2">
+                        <input
+                            class="w-5 h-5 cursor-pointer border-2"
+                            id="mpl"
+                            type="radio"
+                            name="group"
+                        />
+                        <label for="mpl">Budapest XI. kerület</label>
                     </li>
                     <li class="flex items-center gap-2">
                         <input
@@ -93,23 +104,29 @@
                             type="radio"
                             name="group"
                         />
-                        <label for="mpl">MPL</label>
+                        <label for="mpl">Tiszalök</label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <input
+                            class="w-5 h-5 cursor-pointer border-2"
+                            id="mpl"
+                            type="radio"
+                            name="group"
+                        />
+                        <label for="mpl">Nyíregyháza</label>
                     </li>
                 </ul>
-            {:else}
-                <p class="text-[#9D9D9D] pl-8">
-                    Személyes átvételt választotta
-                </p>
             {/if}
-            <p class="text-[#9D9D9D] mt-8 mb-4 text-center">
-                A rendelés további menetéről e-mailben értesítjük
-            </p>
-            <div class="flex justify-center">
+            <div class="flex justify-center mt-8">
                 <button
                     class="text-lg text-white font-bold py-4 px-32 bg-[#82E9CD]"
                     type="submit">RENDELÉS</button
                 >
             </div>
+            <p class="text-[#9D9D9D] mb-4 text-center">
+                A fizetés bankszámlaszámra történő utalással történik. <br /> A részletekről
+                e-mailben értesítjük.
+            </p>
         </form>
     </div>
 </main>
