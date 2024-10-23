@@ -48,43 +48,46 @@
 </svelte:head>
 
 <main
-    class="min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] h-max relative mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] pt-4 pb-12 md:pb-4 font-inter"
+    class="min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] h-max relative mx-2 xxs:mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] pt-4 pb-12 md:pb-4 font-inter"
 >
     <h1 class="section-title text-center">Rendelés</h1>
-    <div class="flex justify-evenly">
+    <div class="flex flex-col lg:flex-row justify-evenly">
         <OrderSummary />
-        <form action="">
-            <label class="font-bold text-md pl-4 pb-2" for="name">NÉV</label>
+        <form class="flex flex-col items-center" action="">
+            <label class="font-bold text-md lg:pl-4 pb-2" for="name">NÉV</label>
             <input
-                class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD] mb-8"
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD] mb-8"
                 id="name"
                 type="text"
                 disabled={isCartEmpty}
             />
-            <label class="font-bold text-md pl-4 pb-2" for="email"
+            <label class="font-bold text-md lg:pl-4 pb-2" for="email"
                 >EMAIL CÍM</label
             >
             <input
-                class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD] mb-8"
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD] mb-8"
                 id="email"
                 type="text"
                 disabled={isCartEmpty}
             />
-            <label class="font-bold text-md pl-4 pb-2" for="phone"
+            <label class="font-bold text-md lg:pl-4 pb-2" for="phone"
                 >TELEFONSZÁM</label
             >
             <input
-                class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD] mb-8"
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD] mb-8"
                 id="phone"
                 type="tel"
                 disabled={isCartEmpty}
             />
 
             <div class="mb-8">
-                <label class="font-bold text-md mr-4" for="delivery"
-                    >SZÁLLÍTÁSI MÓD</label
+                <label
+                    class="text-center sm:text-start font-bold text-md mr-4"
+                    for="delivery">SZÁLLÍTÁSI MÓD</label
                 >
-                <section class="mt-4 flex justify-evenly">
+                <section
+                    class="mt-4 flex flex-col sm:flex-row items-center justify-evenly gap-4"
+                >
                     <input
                         type="radio"
                         id="delivery"
@@ -163,40 +166,43 @@
                         <label for="gls" class="flex gap-2">GLS - 2290Ft</label>
                     </li>
                 </ul>
-                <label class="font-bold text-md pl-4 pb-2 mt-8" for="zipcode"
+                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="zipcode"
                     >IRÁNYÍTÓSZÁM</label
                 >
                 <input
-                    class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD]"
+                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
                     id="zipcode"
                     type="number"
                 />
-                <label class="font-bold text-md pl-4 pb-2 mt-8" for="city"
+                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="city"
                     >TELEPÜLÉS</label
                 >
                 <input
-                    class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD]"
+                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
                     id="city"
                     type="text"
                 />
-                <label class="font-bold text-md pl-4 pb-2 mt-8" for="houseno"
+                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="houseno"
                     >HÁZSZÁM</label
                 >
                 <input
-                    class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD]"
+                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
                     id="houseno"
                     type="number"
                 />
-                <label class="font-bold text-md pl-4 pb-2 mt-8" for="zipcode">
+                <label
+                    class="font-bold text-md lg:pl-4 pb-2 mt-8"
+                    for="zipcode"
+                >
                     EMELET / AJTÓ / stb. (opcionális)
                 </label>
                 <input
-                    class="pl-4 h-12 w-[30rem] border-2 border-[#C8CDCD]"
+                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
                     id="zipcode"
                     type="number"
                 />
             {:else if deliveryOption == "pickup"}
-                <ul class="pl-8 flex justify-evenly gap-8">
+                <ul class="pl-0 xxsm:pl-8 flex justify-evenly gap-2 xxsm:gap-8">
                     <li class="flex items-center gap-2">
                         <input
                             class="w-5 h-5 cursor-pointer"
@@ -230,7 +236,7 @@
                     <img class="w-4 h-4" src="/map_pin.svg" alt="Map pin" />
                 </button>
             {:else if deliveryOption == "personal"}
-                <ul class="flex gap-8">
+                <ul class="flex flex-col sm:flex-row gap-8">
                     <li class="flex items-center gap-2">
                         <input
                             class="w-5 h-5 cursor-pointer"
@@ -259,14 +265,14 @@
                         <label for="nyh">Nyíregyháza</label>
                     </li>
                 </ul>
-                <p class="text-[#9d9d9d] mt-4">
+                <p class="text-[#9d9d9d] text-center sm:text-start px-4 mt-4">
                     Az átvétel pontos helyéről és idejéről e-mailben
                     egyeztetünk.
                 </p>
             {/if}
             <div class="flex justify-center mt-8">
                 <button
-                    class="text-lg text-white font-bold py-4 px-32"
+                    class="text-lg text-white font-bold py-4 px-16 sm:px-32"
                     type="submit"
                     class:bg-[#82E9CD]={!isFormValidated}
                     class:opacity-40={!isFormValidated}
@@ -274,7 +280,7 @@
                     disabled={!isFormValidated}>RENDELÉS</button
                 >
             </div>
-            <p class="text-[#9D9D9D] my-4 text-center">
+            <p class="text-[#9D9D9D] my-4 text-center px-4">
                 A fizetés bankszámlaszámra történő utalással történik. <br /> A részletekről
                 e-mailben értesítjük.
             </p>
@@ -282,13 +288,20 @@
     </div>
 
     <Modal
-        title="Foxpost csomagautomata"
         bind:open={isFoxpostModalOpen}
         autoclose
-        class="w-[72rem] left-1/2 -translate-x-1/2"
+        class="w-[19rem] xxs:w-[24rem] xxsm:w-[28rem] sm:w-[36rem] md:w-[48rem] lg:w-[60rem] xl:w-[72rem] md:left-1/2 md:-translate-x-1/2"
     >
+        <svelte:fragment slot="header">
+            <h3
+                class="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white"
+            >
+                Foxpost csomagautomata
+            </h3>
+        </svelte:fragment>
+
         <iframe
-            class="w-[64rem] mx-auto mt-12"
+            class="w-[17rem] xxs:w-[21rem] xxsm:w-[25rem] sm:w-[33rem] md:w-[45rem] lg:w-[57rem] xl:w-[69rem] h-[76vh] mx-auto mt-12"
             title="Foxpost csomagpontok"
             frameborder="0"
             loading="lazy"
@@ -298,12 +311,20 @@
         ></iframe>
     </Modal>
     <Modal
-        title="GLS csomagautomata"
         bind:open={isGLSModalOpen}
         autoclose
-        class="w-[72rem] left-1/2 -translate-x-1/2"
+        class="w-[19rem] xxs:w-[24rem] xxsm:w-[28rem] sm:w-[36rem] md:w-[48rem] lg:w-[60rem] xl:w-[72rem] md:left-1/2 md:-translate-x-1/2"
     >
-        <div class="w-[69rem] h-[76vh]">
+        <svelte:fragment slot="header">
+            <h3
+                class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white"
+            >
+                GLS csomagautomata
+            </h3>
+        </svelte:fragment>
+        <div
+            class="w-[17rem] xxs:w-[21rem] xxsm:w-[25rem] sm:w-[33rem] md:w-[45rem] lg:w-[57rem] xl:w-[69rem] h-[76vh]"
+        >
             <gls-dpm bind:this={widget} country="hu"></gls-dpm>
         </div>
     </Modal>
