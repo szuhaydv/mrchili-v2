@@ -4,11 +4,17 @@
     import { onMount } from "svelte";
     import { userCart } from "../cartService";
     import { OrderInfo } from "../dataService";
+    import { returnClientTemplate } from "./emailTemplates";
 
     let isFoxpostModalOpen = false;
     let isGLSModalOpen = false;
 
     const formInfo = new OrderInfo();
+    let isSame = true;
+
+    $: productPrice = $userCart.reduce((sum, item) => {
+        return sum + item.productType.price * item.productCount;
+    }, 0);
 
     function checkDeliveryPrice(deliveryMethod, pickupMethod) {
         if (deliveryMethod == "delivery") {
@@ -49,6 +55,11 @@
         pickupCity,
         pickupLocation,
         personalPickupMethod,
+        deliveryZip,
+        deliveryCity,
+        deliveryHouseNo,
+        deliveryOptionals,
+        isAddressSame,
     ) {
         const baseChecks = [
             userCart.length == 0,
@@ -58,10 +69,18 @@
             deliveryMethod == "",
         ];
         if (baseChecks.some((c) => c)) return false;
-        if (deliveryMethod == "delivery") {
-            const addressChecks = [zipCode == "", city == "", houseNo == ""];
-            if (addressChecks.some((c) => c)) return false;
-        } else if (deliveryMethod == "pickup") {
+        const deliveryChecks = [zipCode == "", city == "", houseNo == ""];
+        const differentDeliveryChecks = [
+            deliveryZip == "",
+            deliveryCity == "",
+            deliveryHouseNo == "",
+        ];
+        if (deliveryChecks.some((c) => c)) return false;
+        if (!isAddressSame) {
+            if (differentDeliveryChecks.some((c) => c)) return false;
+        }
+
+        if (deliveryMethod == "pickup") {
             const pickupChecks = [
                 pickupMethod == "",
                 pickupName == "",
@@ -92,6 +111,11 @@
         formInfo.pickupPointInfo.city,
         formInfo.pickupPointInfo.location,
         formInfo.personalPickupMethod,
+        formInfo.deliveryZip,
+        formInfo.deliveryCity,
+        formInfo.deliveryHouseNo,
+        formInfo.deliveryOptionals,
+        isSame,
     );
 
     function receiveMessage(event) {
@@ -170,16 +194,14 @@
         //    html: "<p>This is a test email sent from my SvelteKit app.</p>",
         //};
         const staffEmailOptions = {
-            to: "szuhaydv@gmail.com",
+            to: "mr.chili.info@gmail.com",
             subject: "Test Email",
             text: `
-        This is a test email sent to Rozmár12.
-
         Kedves ${formInfo.name}!
 
         Köszönjük a rendelését.
 
-        Végösszeg: ${9999} Ft
+        Végösszeg: ${productPrice + deliveryPrice} Ft
 
         Kérjük utalja el a fizetendő összeget a következő bankszámlaszámra: 11773449-02242675.
 
@@ -189,23 +211,12 @@
 
         Mr. Chili csapata
     `,
-            html: `
-        <p>This is a test email sent to Rozmár12.</p>
-
-        <p>Kedves ${formInfo.name}!</p>
-
-        <p>Köszönjük a rendelését.</p>
-
-        <p>Végösszeg: ${9999} Ft</p>
-
-        <p>Kérjük utalja el a fizetendő összeget a következő bankszámlaszámra: 11773449-02242675.</p>
-
-        <p>Amint megérkezik az utalás, már csomagoljuk is a rendelt termék(ek)et és a választott szállítási módon eljuttatjuk Önnek. Az esetleges további tudnivalókró��l e-mailben értesítjük.</p>
-
-        <p>Üdvözlettel,</p>
-
-        <p>Mr. Chili csapata</p>
-    `,
+            html: returnClientTemplate(
+                formInfo,
+                productPrice,
+                deliveryPrice,
+                $userCart,
+            ),
         };
         handleSendEmail(staffEmailOptions);
     }
@@ -223,12 +234,20 @@
 >
     <h1 class="section-title text-center">Rendelés</h1>
     <div class="flex flex-col lg:flex-row justify-evenly">
-        <OrderSummary {deliveryPrice} />
+        <OrderSummary {productPrice} {deliveryPrice} />
         <form
             on:submit|preventDefault={submitForm}
             class="flex flex-col items-center lg:items-start"
             action=""
         >
+            <div
+                class="w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] flex items-center gap-4 mb-8"
+            >
+                <h2 class="text-lg font-freeman whitespace-nowrap">
+                    Személyes adatok
+                </h2>
+                <hr class="w-full border-2" />
+            </div>
             <label class="font-bold text-md lg:pl-4 pb-2" for="name">NÉV</label>
             <input
                 class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD] mb-8"
@@ -257,8 +276,114 @@
                 disabled={isCartEmpty}
                 bind:value={formInfo.phoneNumber}
             />
-
-            <div class="mb-8 lg:w-full">
+            <div
+                class="flex w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] items-center gap-4 mb-8"
+            >
+                <h2 class="text-lg font-freeman whitespace-nowrap">
+                    Számlázási cím
+                </h2>
+                <hr class="border-2 w-full" />
+            </div>
+            <label class="font-bold text-md lg:pl-4 pb-2" for="zipcode"
+                >IRÁNYÍTÓSZÁM</label
+            >
+            <input
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                id="zipcode"
+                type="number"
+                bind:value={formInfo.zipCode}
+            />
+            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="city"
+                >TELEPÜLÉS</label
+            >
+            <input
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                id="city"
+                type="text"
+                bind:value={formInfo.city}
+            />
+            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="houseno"
+                >HÁZSZÁM</label
+            >
+            <input
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                id="houseno"
+                type="number"
+                bind:value={formInfo.houseNo}
+            />
+            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="optionals">
+                EMELET / AJTÓ / stb. (opcionális)
+            </label>
+            <input
+                class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                id="optionals"
+                type="text"
+                bind:value={formInfo.optionals}
+            />
+            <div class="flex items-center gap-4 mt-8">
+                <input
+                    class="w-5 h-5 rounded-md"
+                    id="same"
+                    type="checkbox"
+                    bind:checked={isSame}
+                />
+                <label for="same"
+                    >Számlázási cím megegyezik a szállítási címmel</label
+                >
+            </div>
+            {#if isSame == false}
+                <div class="mt-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <h2 class="text-lg font-freeman whitespace-nowrap">
+                            Szállítási cím
+                        </h2>
+                        <hr class="w-full border-2" />
+                    </div>
+                    <label
+                        class="font-bold text-md lg:pl-4 pb-2"
+                        for="deliveryzip">IRÁNYÍTÓSZÁM</label
+                    >
+                    <input
+                        class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                        id="deliveryzip"
+                        type="number"
+                        bind:value={formInfo.deliveryZip}
+                    />
+                    <label
+                        class="font-bold text-md lg:pl-4 pb-2 mt-8"
+                        for="deliverycity">TELEPÜLÉS</label
+                    >
+                    <input
+                        class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                        id="deliverycity"
+                        type="text"
+                        bind:value={formInfo.deliveryCity}
+                    />
+                    <label
+                        class="font-bold text-md lg:pl-4 pb-2 mt-8"
+                        for="deliveryhouseno">HÁZSZÁM</label
+                    >
+                    <input
+                        class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                        id="deliveryhouseno"
+                        type="number"
+                        bind:value={formInfo.deliveryHouseNo}
+                    />
+                    <label
+                        class="font-bold text-md lg:pl-4 pb-2 mt-8"
+                        for="deliveryoptionals"
+                    >
+                        EMELET / AJTÓ / stb. (opcionális)
+                    </label>
+                    <input
+                        class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
+                        id="deliveryoptionals"
+                        type="text"
+                        bind:value={formInfo.deliveryOptionals}
+                    />
+                </div>
+            {/if}
+            <div class="my-8 lg:w-full">
                 <p class="text-center sm:text-start font-bold text-md mr-4">
                     SZÁLLÍTÁSI MÓD
                 </p>
@@ -346,48 +471,9 @@
                         <label for="gls" class="flex gap-2">GLS - 2290Ft</label>
                     </li>
                 </ul>
-                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="zipcode"
-                    >IRÁNYÍTÓSZÁM</label
-                >
-                <input
-                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                    id="zipcode"
-                    type="number"
-                    bind:value={formInfo.zipCode}
-                />
-                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="city"
-                    >TELEPÜLÉS</label
-                >
-                <input
-                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                    id="city"
-                    type="text"
-                    bind:value={formInfo.city}
-                />
-                <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="houseno"
-                    >HÁZSZÁM</label
-                >
-                <input
-                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                    id="houseno"
-                    type="number"
-                    bind:value={formInfo.houseNo}
-                />
-                <label
-                    class="font-bold text-md lg:pl-4 pb-2 mt-8"
-                    for="optionals"
-                >
-                    EMELET / AJTÓ / stb. (opcionális)
-                </label>
-                <input
-                    class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                    id="optionals"
-                    type="text"
-                    bind:value={formInfo.optionals}
-                />
             {:else if formInfo.deliveryMethod == "pickup"}
                 <ul
-                    class="pl-0 xxsm:pl-8 flex justify-evenly gap-2 xxsm:gap-8 w-full"
+                    class="pl-0 xxsm:pl-8 flex justify-center lg:justify-evenly gap-2 xxsm:gap-8 w-full"
                 >
                     <li class="flex items-center gap-2">
                         <input
@@ -432,6 +518,11 @@
                         <span class="text-green-500">✔</span>
                     {/if}
                 </button>
+                {#if formInfo.pickupPointInfo.name != ""}
+                    <p class="text-center px-12 w-full">
+                        {formInfo.pickupPointInfo.location}
+                    </p>
+                {/if}
             {:else if formInfo.deliveryMethod == "personal"}
                 <ul class="flex flex-col sm:flex-row gap-8">
                     <li class="flex items-center gap-2">

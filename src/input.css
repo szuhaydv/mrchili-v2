@@ -4,12 +4,7 @@
 
 @layer components {
     .section-title {
-        @apply font-freeman text-sxl xxs:text-xl leading-normal my-8;
-        text-shadow:
-            4px 4px 0 #fff,
-            -4px 4px 0 #fff,
-            -4px -4px 0 #fff,
-            4px -4px 0 #fff;
+        @apply font-knewave text-sxl xxs:text-xl leading-normal my-8;
     }
     .order-step {
         @apply bg-white flex items-center justify-center gap-4 lg:gap-10 rounded-full w-[19.5rem] xxs:w-[24rem] sm:w-[36rem] md:w-[44rem] bl:w-[52rem] px-4 sm:px-8 bl:px-20 py-4 absolute;

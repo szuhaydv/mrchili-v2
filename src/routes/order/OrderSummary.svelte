@@ -1,9 +1,7 @@
 <script>
     import { userCart } from "../cartService";
 
-    $: productPrice = $userCart.reduce((sum, item) => {
-        return sum + item.productType.price * item.productCount;
-    }, 0);
+    export let productPrice;
 
     export let deliveryPrice = -1;
 

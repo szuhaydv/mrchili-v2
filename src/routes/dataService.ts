@@ -137,7 +137,6 @@ export class Product {
 		public readonly shortDescription = "",
 		public readonly ingredients = "",
 		public readonly longDescription = "",
-		public readonly showOnLanding = false,
 		public readonly chiliName = ""
 		//TODO later add stock
 	) { }
@@ -156,7 +155,6 @@ export let productInfo = [
 		"Carolina Reaper chiliszósz",
 		"Carolina Reaper, balzsamecet, fokhagyma, só, nátrium-benzoát",
 		"A világ egyik legerősebb chilije, a Kaszás nem ismer kegyelmet, kemény próbatétel elé állítja a halandókat. A Végítélet kiválóan alkalmas az utolsó vacsorák ízesítéséhez. Pörköltbe, bográcsételekbe és levesekbe adagolva igazán különleges ízélményben lehet részetek.",
-		true,
 		"Carolina Reaper"
 	),
 	new Product(
@@ -166,9 +164,10 @@ export let productInfo = [
 		"Kísértés",
 		3990,
 		4,
-		"Trinidad Moruga Scorpion – Bhut Yolokia chiliszósz",
+		"Trinidad Moruga Scorpion – Bhut Jolokia chiliszósz",
 		"Trinidad Moruga Scorpion Yellow, Bhut Jolokia Yellow, balzsamecet, fokhagyma, só, nátrium-benzoát",
-		"Trinidad szigetén pihensz a homokban, mikor hirtelen arra eszmélsz, hogy egy skorpió végigfut a karodon. Veszélyben vagy, de végül engedsz a Kísértésnek, ami a rabjává tesz. Mire észbe kapsz, már nem tudod elképzelni a gulyáslevest, a pörköltet vagy a szendvicsedet nélküle."
+		"Trinidad szigetén pihensz a homokban, mikor hirtelen arra eszmélsz, hogy egy skorpió végigfut a karodon. Veszélyben vagy, de végül engedsz a Kísértésnek, ami a rabjává tesz. Mire észbe kapsz, már nem tudod elképzelni a gulyáslevest, a pörköltet vagy a szendvicsedet nélküle.",
+		"Trinidad Moruga Scorpion – Bhut Jolokia"
 	),
 	new Product(
 		2,
@@ -177,9 +176,10 @@ export let productInfo = [
 		"Fantom",
 		3990,
 		4,
-		"Bhut Yolokia chiliszósz",
+		"Bhut Jolokia chiliszósz",
 		"Bhut Jolokia Red, balzsamecet, fokhagyma, só, nátrium-benzoát",
-		"Egyedül vagy otthon, mikor koppanást hallasz a szoba sarkából. Nem látsz senkit, de érzed, hogy valami nincs rendjén. Elkap a borzongás, ahogy a Fantom átsuhan a testeden, próbára téve vétlen ízlelőbimbóidat. A túlvilági bizsergés úgy megigéz, hogy ezentúl minden melegszendvicsben és hamburgerben érezni akarod."
+		"Egyedül vagy otthon, mikor koppanást hallasz a szoba sarkából. Nem látsz senkit, de érzed, hogy valami nincs rendjén. Elkap a borzongás, ahogy a Fantom átsuhan a testeden, próbára téve vétlen ízlelőbimbóidat. A túlvilági bizsergés úgy megigéz, hogy ezentúl minden melegszendvicsben és hamburgerben érezni akarod.",
+		"Bhut Jolokia"
 	),
 	new Product(
 		3,
@@ -191,7 +191,6 @@ export let productInfo = [
 		"Epres-chilis chutney",
 		"eper, Habanero, gyömbér, balzsamecet, fokhagyma, só, cukor, citromsav, nátrium-benzoát",
 		"A mézédes eper, a tüzes Habanero és a pikáns gyömbér találkozásakor toroksimogató csoda történik. A Gangsteper nem csalja elő a könnyeidet, csak néha-néha odacsíp. A vasárnapi palacsinta és túrógombóc nélkülözhetetlen társa, de sült sertéshúsokhoz is remekül passzol.",
-		true,
 		"Habanero Red"
 	),
 	new Product(
@@ -204,7 +203,6 @@ export let productInfo = [
 		"Sárgabarackos-chilis chutney",
 		"sárgabarack, Bhut Jolokia Yellow, balzsamecet, méz, vöröshagyma, fokhagyma, só, citromsav, nátrium-benzoát",
 		"Zamatos sárgabarack és lángoló Bhut Jolokia nászából született a palackba zárt, barátságos szellem, a Barackrém. Gyümölcsösségével elvarázsol, majd tüzességével enyhén fejbe kólint. Barackos húsok és sült csirkés ételek megbolondításához igazán jó választás.",
-		true,
 		"Bhut Jolokia Yellow"
 	),
 	new Product(
@@ -216,7 +214,8 @@ export let productInfo = [
 		2,
 		"Mangós-chilis chutney",
 		"mangó, Bahamian Goat Pepper, Scotch Bonnet, narancslé, cukor, méz, vöröshagyma, só, citromsav, nátrium-benzoát",
-		"Lágyan hullámzó óceán, fehérhomokos part és egy finom koktél. A Bahamangó egy idilli nyaralásra inivitál az ízek színes világába. Akár a sülthúsodat locsolod meg vele , akár a fagyidra csurgatod, nem fogsz csalódni a mangós csábításban."
+		"Lágyan hullámzó óceán, fehérhomokos part és egy finom koktél. A Bahamangó egy idilli nyaralásra inivitál az ízek színes világába. Akár a sülthúsodat locsolod meg vele , akár a fagyidra csurgatod, nem fogsz csalódni a mangós csábításban.",
+		"Bahamian Goat Pepper"
 	),
 	new Product(
 		6,
@@ -228,7 +227,6 @@ export let productInfo = [
 		"Sütőtökös-chilis chutney",
 		"sütőtök, Bahamian Goat Pepper, balzsamecet, vöröshagyma, fokhagyma, gyömbér, méz, szerecsendió, só, citromsav, nátrium-benzoát",
 		"Sütőtök illata árad a konyhából egy borús őszi estén. A szerecsendió, gyömbér és chili hármasa tökéletesen harmonizál a mézes tökpürével. Ha szereted a különleges ízvilágú kávékat, egy Pumpkin Spicy Latte-t mindenképp készíts a szósszal, de a melegszendvicsedet is garantáltan feldobja.",
-		true,
 		"Bahamian Goat Pepper"
 	)
 ]
@@ -252,6 +250,10 @@ export class OrderInfo {
 		public city = "",
 		public houseNo = "",
 		public optionals = "",
+		public deliveryZip = "",
+		public deliveryCity = "",
+		public deliveryHouseno = "",
+		public deliveryOptionals = "",
 		public pickupMethod = "",
 		public pickupPointInfo = new PickupPointInfo(),
 		public personalPickupMethod = ""

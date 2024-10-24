@@ -37,8 +37,6 @@
         currentOrderInfo = e.detail.current;
     }
 
-    $: landingProducts = productInfo.filter((el) => el.showOnLanding);
-
     let carousel: typeof Carousel;
     let currentPageIndex = 0;
 
@@ -48,10 +46,10 @@
         { text: "Kézbesítés" },
     ];
 
-    function circleClick(index: number) {
-        currentPageIndex = index;
-        carousel.goTo(index);
-    }
+    //function circleClick(index: number) {
+    //    currentPageIndex = index;
+    //    carousel.goTo(index);
+    //}
 
     function pageChangeEvent(event: any) {
         currentPageIndex = event.detail;
@@ -62,7 +60,7 @@
     class="mx-4 xxs:mx-8 lg:mx-12 xxl:h-[76vh] banner bg bg-gradient-to-b from-[#fdc830] to-[#f37335] rounded-[3rem] flex flex-col xxl:flex-row mb-12"
 >
     <div
-        class="flex flex-col justify-center mx-auto xxl:ml-[clamp(2rem,-22.657rem+28.881vw,12rem)] mt-32 sm:mt-40 xxl:mt-0 text-center xxl:text-left"
+        class="flex flex-col justify-center mx-auto xxl:ml-[clamp(2rem,-22.657rem+28.881vw,12rem)] mt-20 xxsm:mt-32 sm:mt-40 xxl:mt-0 text-center xxl:text-left"
     >
         <h1
             class="text-md xxs:text-lg sm:text-sxl md:text-xl font-semibold block leading-tight"
@@ -79,12 +77,14 @@
             ></CallToAction>
         </div>
     </div>
-    <div class="flex flex-col items-center sm:flex-row mx-auto mb-12 xxl:mb-0">
+    <div
+        class="flex flex-col pointer-events-none items-center sm:flex-row mx-auto mb-12 xxl:mb-0"
+    >
         <div
             class="w-[18rem] xxs:w-[20rem] md:w-[clamp(24rem,4.274rem+23.105vw,32rem)] h-full flex items-center relative mx-auto"
         >
             <div
-                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10 pb-8 xxl:pb-0 pointer-events-auto"
+                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10 pb-8 xxl:pb-0"
             >
                 {#if mounted}
                     <Carousel
@@ -94,25 +94,25 @@
                         autoplayDuration={5000}
                     >
                         <button
-                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl xxs:rounded-3xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
+                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl xxs:rounded-3xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto pointer-events-auto"
                             slot="prev"
                             on:click={() => carousel.goToPrev()}
                         >
                             ❮
                         </button>
                         <button
-                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto"
+                            class="w-16 h-16 xxs:w-20 xxs:h-20 rounded-2xl bg-[#E49482] border-[4px] border-white text-white text-lg my-auto pointer-events-auto"
                             slot="next"
                             on:click={() => carousel.goToNext()}
                         >
                             ❯
                         </button>
-                        {#each landingProducts as product}
+                        {#each productInfo as product}
                             <div
-                                class="flex justify-center h-[64vh] overflow-visible"
+                                class="flex justify-center h-[64vh] overflow-visible pointer-events-none"
                             >
                                 <img
-                                    class="w-[72%] object-contain rotate-12 translate-x-[15%]"
+                                    class="w-[72%] object-contain rotate-12 translate-x-[15%] pointer-events-none"
                                     src={product.imgPath}
                                     alt={product.imgPath}
                                 />
@@ -156,7 +156,7 @@
             class="mt-[2rem] sm:mt-[20%] h-max ml-0 sm:ml-4 w-40 p-4 rounded-2xl bg-white shadow-lg flex flex-col gap-4 z-20"
         >
             <h3 class="text-md text-center font-semibold">
-                {landingProducts[currentPageIndex].title}
+                {productInfo[currentPageIndex].title}
             </h3>
             <div>
                 <h4 class="font-medium underline mb-2">Csípősség:</h4>
@@ -164,9 +164,9 @@
                     {#each Array.from({ length: 5 }) as _, index}
                         <img
                             class="w-5 h-5"
-                            class:opacity-20={landingProducts[currentPageIndex]
+                            class:opacity-20={productInfo[currentPageIndex]
                                 .spiceLevel <= index}
-                            class:grayscale={landingProducts[currentPageIndex]
+                            class:grayscale={productInfo[currentPageIndex]
                                 .spiceLevel <= index}
                             src="/fire_colored.png"
                             alt="Fire icon"
@@ -177,7 +177,7 @@
             <div class="w-full">
                 <h4 class="font-medium underline mb-2">Chili:</h4>
                 <span class="text-center block"
-                    >{landingProducts[currentPageIndex].chiliName}</span
+                    >{productInfo[currentPageIndex].chiliName}</span
                 >
             </div>
         </div>
@@ -205,7 +205,7 @@
 -->
 <section id="categories" class="relative bg-[#273036] lg:bg-transparent">
     <div class="lg:absolute z-10 top-0 w-full">
-        <h2 class="section-title pt-12 text-center">Kategóriáink</h2>
+        <h2 class="section-title text-white pt-12 text-center">Kategóriáink</h2>
         <ul
             class="flex flex-col items-center lg:flex-row gap-8 lg:justify-evenly w-full h-full pb-12"
         >
@@ -279,7 +279,9 @@
     <div
         class="absolute top-0 w-full overflow-x-hidden flex flex-col items-center"
     >
-        <h2 class="section-title text-sxl sm:text-xl">Vásárlás menete</h2>
+        <h2 class="section-title text-sxl sm:text-xl text-white">
+            Vásárlás menete
+        </h2>
         <div
             class="w-[19.5rem] xxs:w-[24rem] sm:w-[36rem] md:w-[44rem] bl:w-[52rem] h-24 flex items-center my-8 sm:mt-12 sm:mb-16"
         >
@@ -352,7 +354,7 @@
         id="gyik"
         class="w-[90vw] flex flex-col items-center mx-auto xxl:w-[60vw]"
     >
-        <h2 class="section-title">GYIK</h2>
+        <h2 class="section-title text-white">GYIK</h2>
         <div
             class="w-[48rem] h-full max-w-[96vw] xxsm:max-w-[calc(100vw-6rem)]"
         >
@@ -363,7 +365,7 @@
         id="contact"
         class="w-full xxl:w-[40vw] mb-8 xxl:mb-0 flex flex-col items-center"
     >
-        <h2 class="section-title">Kapcsolat</h2>
+        <h2 class="section-title text-white">Kapcsolat</h2>
         <form
             class="bg-white rounded-2xl p-6 flex flex-col gap-6 w-max"
             action=""
