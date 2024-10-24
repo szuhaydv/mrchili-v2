@@ -4,7 +4,10 @@
     import { onMount } from "svelte";
     import { userCart } from "../cartService";
     import { OrderInfo } from "../dataService";
-    import { returnClientTemplate } from "./emailTemplates";
+    import {
+        returnClientTemplate,
+        returnStaffTemplate,
+    } from "./emailTemplates";
 
     let isFoxpostModalOpen = false;
     let isGLSModalOpen = false;
@@ -47,7 +50,7 @@
         deliveryMethod,
         zipCode,
         city,
-        houseNo,
+        addressline,
         optionals,
         pickupMethod,
         pickupName,
@@ -57,7 +60,7 @@
         personalPickupMethod,
         deliveryZip,
         deliveryCity,
-        deliveryHouseNo,
+        deliveryAddressline,
         deliveryOptionals,
         isAddressSame,
     ) {
@@ -69,11 +72,11 @@
             deliveryMethod == "",
         ];
         if (baseChecks.some((c) => c)) return false;
-        const deliveryChecks = [zipCode == "", city == "", houseNo == ""];
+        const deliveryChecks = [zipCode == "", city == "", addressline == ""];
         const differentDeliveryChecks = [
             deliveryZip == "",
             deliveryCity == "",
-            deliveryHouseNo == "",
+            deliveryAddressline == "",
         ];
         if (deliveryChecks.some((c) => c)) return false;
         if (!isAddressSame) {
@@ -103,7 +106,7 @@
         formInfo.deliveryMethod,
         formInfo.zipCode,
         formInfo.city,
-        formInfo.houseNo,
+        formInfo.addressline,
         formInfo.optionals,
         formInfo.pickupMethod,
         formInfo.pickupPointInfo.name,
@@ -113,7 +116,7 @@
         formInfo.personalPickupMethod,
         formInfo.deliveryZip,
         formInfo.deliveryCity,
-        formInfo.deliveryHouseNo,
+        formInfo.deliveryAddressline,
         formInfo.deliveryOptionals,
         isSame,
     );
@@ -187,15 +190,21 @@
     }
 
     async function submitForm() {
-        //const clientEmailOptions = {
-        //    to: formInfo.email,
-        //    subject: "Test Email",
-        //    text: "This is a test email sent from my SvelteKit app.",
-        //    html: "<p>This is a test email sent from my SvelteKit app.</p>",
-        //};
         const staffEmailOptions = {
             to: "mr.chili.info@gmail.com",
-            subject: "Test Email",
+            subject: "Rendelés érkezett",
+            text: "Új rendelés érkezett",
+            html: returnStaffTemplate(
+                formInfo,
+                isSame,
+                productPrice,
+                deliveryPrice,
+                $userCart,
+            ),
+        };
+        const clientEmailOptions = {
+            to: formInfo.email,
+            subject: "Rendelés",
             text: `
         Kedves ${formInfo.name}!
 
@@ -218,6 +227,7 @@
                 $userCart,
             ),
         };
+        handleSendEmail(clientEmailOptions);
         handleSendEmail(staffEmailOptions);
     }
 </script>
@@ -302,14 +312,14 @@
                 type="text"
                 bind:value={formInfo.city}
             />
-            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="houseno"
-                >HÁZSZÁM</label
+            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="addressline"
+                >UTCA, HÁZSZÁM</label
             >
             <input
                 class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                id="houseno"
-                type="number"
-                bind:value={formInfo.houseNo}
+                id="addressline"
+                type="text"
+                bind:value={formInfo.addressline}
             />
             <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="optionals">
                 EMELET / AJTÓ / stb. (opcionális)
@@ -361,13 +371,13 @@
                     />
                     <label
                         class="font-bold text-md lg:pl-4 pb-2 mt-8"
-                        for="deliveryhouseno">HÁZSZÁM</label
+                        for="deliveryaddressline">HÁZSZÁM</label
                     >
                     <input
                         class="pl-4 h-12 w-[18rem] xxs:w-[19.5rem] sm:w-[30rem] border-2 border-[#C8CDCD]"
-                        id="deliveryhouseno"
+                        id="deliveryaddressline"
                         type="number"
-                        bind:value={formInfo.deliveryHouseNo}
+                        bind:value={formInfo.deliveryAddressline}
                     />
                     <label
                         class="font-bold text-md lg:pl-4 pb-2 mt-8"
