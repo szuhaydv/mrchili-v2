@@ -5,7 +5,7 @@
         return sum + item.productType.price * item.productCount;
     }, 0);
 
-    let deliveryPrice = -1;
+    export let deliveryPrice = -1;
 
     function handleRemove(product) {
         userCart.update((cart) => {
@@ -18,7 +18,9 @@
     }
 </script>
 
-<section class="w-[30%] mb-8 font-inter">
+<section
+    class="w-[18rem] xxs:w-[19.5rem] mx-auto lg:mx-0 lg:w-[30%] mb-16 font-inter"
+>
     <h2
         class="bg-[#43aecfd9] w-full py-4 text-white font-semibold text-md text-center mb-8"
     >
@@ -74,7 +76,7 @@
                         {#if deliveryPrice == -1}
                             ---
                         {:else}
-                            {deliveryPrice}
+                            {deliveryPrice} Ft
                         {/if}
                     </span>
                 </p>

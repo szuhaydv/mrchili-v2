@@ -232,3 +232,29 @@ export let productInfo = [
 		"Bahamian Goat Pepper"
 	)
 ]
+
+export class PickupPointInfo {
+	constructor(
+		public name = "",
+		public zipCode = "",
+		public city = "",
+		public location = ""
+	) { }
+}
+
+export class OrderInfo {
+	constructor(
+		public name = "",
+		public email = "",
+		public phoneNumber = "",
+		public deliveryMethod = "",
+		public zipCode = "",
+		public city = "",
+		public houseNo = "",
+		public optionals = "",
+		public pickupMethod = "",
+		public pickupPointInfo = new PickupPointInfo(),
+		public personalPickupMethod = ""
+	) { }
+}
+
