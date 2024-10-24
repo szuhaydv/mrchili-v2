@@ -84,7 +84,7 @@
             class="w-[18rem] xxs:w-[20rem] md:w-[clamp(24rem,4.274rem+23.105vw,32rem)] h-full flex items-center relative mx-auto"
         >
             <div
-                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10 pb-8 xxl:pb-0"
+                class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full z-10 pb-8 xxl:pb-0 pointer-events-auto"
             >
                 {#if mounted}
                     <Carousel
