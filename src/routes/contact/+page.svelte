@@ -1,12 +1,21 @@
 <script>
+    let name;
+    let email;
+    let message;
+
     let emailOptions = {
-        to: "",
-        subject: "Test Email",
-        text: "This is a test email sent from my SvelteKit app.",
-        html: "<p>This is a test email sent from my SvelteKit app.</p>",
+        to: "mr.chili.info@gmail.com",
+        subject: "Üzenet érkezett",
+        text: `
+                Név: ${name}
+                Email: ${email}
+                Üzenet: ${message}
+        `,
+        html: `<p><b>Név: </b>${name}</p><p><b>Email: </b>${email}</p><p><b>Üzenet: </b>${message}</p>`,
     };
 
     async function handleSendEmail() {
+        if (!name || !email || !message) return;
         try {
             const response = await fetch("/api/send-email", {
                 method: "POST",
@@ -37,17 +46,20 @@
                 class="bg-[#e9f4fcd9] rounded-full h-16 pl-8 shadow-inset-lg"
                 placeholder="Név"
                 type="text"
+                bind:value={name}
             />
             <input
                 class="bg-[#e9f4fcd9] rounded-full h-16 pl-8 shadow-inset-lg"
                 placeholder="Email"
                 type="text"
+                bind:value={email}
             />
             <textarea
                 name=""
                 id=""
                 class="h-32 bg-[#e9f4fcd9] p-8 shadow-inset-lg"
                 placeholder="Üzenet"
+                bind:value={message}
             ></textarea>
             <button
                 on:click={handleSendEmail}

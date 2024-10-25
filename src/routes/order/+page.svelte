@@ -15,7 +15,7 @@
     const formInfo = new OrderInfo();
     let isSame = true;
 
-    let successfulOrder = true;
+    let successfulOrder = false;
 
     function closeAlert() {
         if (successfulOrder) {

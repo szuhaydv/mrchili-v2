@@ -54,6 +54,39 @@
     function pageChangeEvent(event: any) {
         currentPageIndex = event.detail;
     }
+
+    let name = "";
+    let email = "";
+    let message = "";
+
+    let emailOptions = {
+        to: "mr.chili.info@gmail.com",
+        subject: "Üzenet érkezett",
+        text: `
+                Név: ${name}
+                Email: ${email}
+                Üzenet: ${message}
+        `,
+        html: `<p><b>Név: </b>${name}</p><p><b>Email: </b>${email}</p><p><b>Üzenet: </b>${message}</p>`,
+    };
+
+    async function handleFormSubmit() {
+        if (!name || !email || !message) return;
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(emailOptions),
+            });
+
+            const { message } = await response.json();
+            console.log(message);
+        } catch (error) {
+            console.error("Error sending email:", error);
+        }
+    }
 </script>
 
 <main
@@ -368,23 +401,24 @@
         <h2 class="section-title text-white">Kapcsolat</h2>
         <form
             class="bg-white rounded-2xl p-6 flex flex-col gap-6 w-max"
-            action=""
+            on:submit|preventDefault={handleFormSubmit}
         >
             <input
                 class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] h-10"
-                maxlength="16"
                 type="text"
                 placeholder="Név"
+                bind:value={name}
             />
             <input
                 class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] h-10"
-                maxlength="16"
                 type="text"
                 placeholder="Email"
+                bind:value={email}
             />
             <textarea
                 class="border border-[#d9d9d9] rounded-lg px-4 w-[16rem] xxs:w-[20rem] max-h-40 min-h-40 pt-4"
                 placeholder="Üzenet"
+                bind:value={message}
             />
             <button
                 class="w-[16rem] h-10 text-white bg-black rounded-lg mx-auto"
