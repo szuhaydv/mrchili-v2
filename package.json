@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/speed-insights": "^1.0.14",
 		"animate.css": "^4.1.1",
 		"dotenv": "^16.4.5",
 		"nodemailer": "^6.9.15",

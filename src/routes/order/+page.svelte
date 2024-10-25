@@ -656,7 +656,7 @@
                     src="/green-check.svg"
                     alt="Green checkmark"
                 />
-                <p class="text-md">Sikeres rendlés!</p>
+                <p class="text-md">Sikeres rendelés!</p>
                 <button
                     on:click={closeAlert}
                     class="ml-auto text-black text-md"
