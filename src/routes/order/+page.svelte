@@ -1,6 +1,6 @@
 <script>
     import OrderSummary from "./OrderSummary.svelte";
-    import { Modal } from "flowbite-svelte";
+    import { Modal, Alert } from "flowbite-svelte";
     import { onMount } from "svelte";
     import { userCart } from "../cartService";
     import { OrderInfo } from "../dataService";
@@ -14,6 +14,14 @@
 
     const formInfo = new OrderInfo();
     let isSame = true;
+
+    let successfulOrder = true;
+
+    function closeAlert() {
+        if (successfulOrder) {
+            successfulOrder = false;
+        }
+    }
 
     $: productPrice = $userCart.reduce((sum, item) => {
         return sum + item.productType.price * item.productCount;
@@ -229,6 +237,11 @@
         };
         handleSendEmail(clientEmailOptions);
         handleSendEmail(staffEmailOptions);
+        userCart.set([]);
+        successfulOrder = true;
+        setTimeout(() => {
+            successfulOrder = false;
+        }, 10000);
     }
 </script>
 
@@ -321,7 +334,10 @@
                 type="text"
                 bind:value={formInfo.addressline}
             />
-            <label class="font-bold text-md lg:pl-4 pb-2 mt-8" for="optionals">
+            <label
+                class="font-bold text-md px-4 xxsm:px-0 lg:pl-4 pb-2 mt-8"
+                for="optionals"
+            >
                 EMELET / AJTÓ / stb. (opcionális)
             </label>
             <input
@@ -330,7 +346,7 @@
                 type="text"
                 bind:value={formInfo.optionals}
             />
-            <div class="flex items-center gap-4 mt-8">
+            <div class="flex items-center gap-4 mt-8 px-4">
                 <input
                     class="w-5 h-5 rounded-md"
                     id="same"
@@ -632,4 +648,26 @@
             <gls-dpm use:setupWidget country="hu"></gls-dpm>
         </div>
     </Modal>
+    {#if successfulOrder}
+        <Alert class="w-[92%] xxsm:w-[80%] max-w-[30rem] mx-auto">
+            <div class="flex gap-4">
+                <img
+                    class="w-6 h-6"
+                    src="/green-check.svg"
+                    alt="Green checkmark"
+                />
+                <p class="text-md">Sikeres rendlés!</p>
+                <button
+                    on:click={closeAlert}
+                    class="ml-auto text-black text-md"
+                >
+                    <span>✕</span>
+                </button>
+            </div>
+            <p class="mt-4 xxsm:px-4">
+                A fizetés bankszámlaszámra történő utalással történik. A
+                részletekről e-mailben értesítjük.
+            </p>
+        </Alert>
+    {/if}
 </main>

@@ -1,11 +1,15 @@
 <main
-    class="relative mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 min-h-[calc(100vh-6rem)] mb-8"
+    class="relative mx-2 xxs:mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 min-h-[calc(100vh-6rem)] mb-8"
 >
-    <h1 class="section-title text-center">
+    <h1 class="section-title px-2 xxs:px-0 text-center text-sxl sm:text-xl">
         Ismerd meg a Mr. Chili birodalmat!
     </h1>
-    <div class="flex justify-evenly w-full">
-        <section class="flex flex-col items-center w-[30%]">
+    <div
+        class="flex bl:flex-row items-center bl:items-start px-8 flex-col gap-8 bl:justify-evenly w-full"
+    >
+        <section
+            class="flex flex-col justify-center items-center w-[80%] bl:w-[30%]"
+        >
             <img src="/leaf.svg" alt="Leaf icon" class="w-16 h-16 mb-8" />
             <p class="mb-8">
                 A csípős ízek rajongójaként mindig is érdekelt a chilik sokszínű
@@ -20,7 +24,7 @@
                 nevelésével indíthassam.
             </p>
         </section>
-        <section class="flex flex-col items-center w-[30%]">
+        <section class="flex flex-col items-center w-[80%] bl:w-[30%]">
             <img
                 src="/lightbulb.svg"
                 alt="Lightbulb icon"
@@ -36,7 +40,7 @@
                 szósszal rendesen meggyűlt a bajuk.
             </p>
         </section>
-        <section class="flex flex-col items-center w-[30%]">
+        <section class="flex flex-col items-center w-[80%] bl:w-[30%]">
             <img
                 src="/future.svg"
                 alt="Telescope icon"

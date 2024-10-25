@@ -72,7 +72,7 @@
     {transitionParams}
     bind:hidden={isSidebarHidden}
     id="sidebar1"
-    class="bg-[#1E3E62]"
+    class="bg-[#1E3E62] z-50"
 >
     <div class="flex items-center">
         <CloseButton on:click={toggleSidebar} class="mb-4 text-white" />
