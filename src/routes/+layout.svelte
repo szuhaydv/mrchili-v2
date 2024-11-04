@@ -4,8 +4,10 @@
     import HeaderComponent from "./HeaderComponent.svelte";
 </script>
 
-<HeaderComponent />
+<h1>Karbantartás alatt...</h1>
+
+<!--<HeaderComponent />
 
 <slot></slot>
 
-<FooterComponent />
+<FooterComponent /> -->
