@@ -284,7 +284,9 @@
     </svg>
 </section>
 <section id="reviews">
-    <h2 class="section-title text-center sm:text-start sm:ml-12">
+    <h2
+        class="section-title text-center text-sxl sm:text-xl sm:text-start sm:ml-12"
+    >
         Visszajelzések
     </h2>
     <div
@@ -312,11 +314,11 @@
     <div
         class="absolute top-0 w-full overflow-x-hidden flex flex-col items-center"
     >
-        <h2 class="section-title text-sxl sm:text-xl text-white">
+        <h2 class="section-title text-center text-sxl sm:text-xl text-white">
             Vásárlás menete
         </h2>
         <div
-            class="w-[19.5rem] xxs:w-[24rem] sm:w-[36rem] md:w-[44rem] bl:w-[52rem] h-24 flex items-center my-8 sm:mt-12 sm:mb-16"
+            class="w-[19.5rem] xxs:w-[24rem] sm:w-[36rem] md:w-[44rem] bl:w-[52rem] h-24 flex items-center my-4 xxsm:my-8 sm:mt-12 sm:mb-16"
         >
             <div
                 class="order-step animate__animated"

@@ -1,25 +1,16 @@
 <script>
     import { goto } from "$app/navigation";
-    import { userCart, BuyProduct } from "../cartService";
+    import { userCart, addToCart, BuyProduct } from "../cartService";
 
     export let product;
 
-    function addToCart(event, product) {
-        const input = event.currentTarget.previousElementSibling;
-        const quantity = input.value;
-        userCart.update((cart) => {
-            const index = cart.findIndex(
-                (el) => el.productType.id == product.id,
-            );
-            if (index == -1) {
-                const newProduct = new BuyProduct(product, quantity);
-                return [...cart, newProduct];
-            } else {
-                const currentCount = Number(cart[index].productCount);
-                cart[index].productCount = currentCount + Number(quantity);
-                return cart;
-            }
-        });
+    function enforceValidity(e) {
+        const input = e.target;
+        if (input.value < 1) {
+            input.value = 1;
+        } else if (input.value > 10) {
+            input.value = 10;
+        }
     }
 </script>
 
@@ -29,7 +20,7 @@
     on:click={() => goto("./products/" + product.id)}
     tabindex="0"
     on:keydown={(event) =>
-        event.key === "Enter" ? goto("./" + product.id) : ""}
+        event.key === "Enter" ? goto("./products/" + product.id) : ""}
     role="button"
 >
     <div class="bg-[#E6EBF0] rounded-lg h-[25rem] relative">
@@ -61,6 +52,7 @@
             {/each}
         </ul>
         <p class="mx-8 text-md text-center">{product.shortDescription}</p>
+        <h3 class="text-md font-bold text-center leading-tight">100ml</h3>
         <h3
             class="text-lg font-extralight text-center text-[#ff0000] leading-tight"
         >
@@ -74,6 +66,9 @@
                 max="10"
                 min="1"
                 on:click|stopPropagation
+                on:keydown|stopPropagation={(e) =>
+                    e.key == "Enter" ? enforceValidity(e) : ""}
+                on:blur={enforceValidity}
                 style="-webkit-appearance: none;"
             />
             <button

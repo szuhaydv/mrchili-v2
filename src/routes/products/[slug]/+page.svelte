@@ -1,6 +1,7 @@
 <script context="module">
     import { page } from "$app/stores";
     import { productInfo } from "../../dataService";
+    import { addToCart } from "../../cartService";
 </script>
 
 <script>
@@ -44,7 +45,12 @@
             <p class="text-sm lg:text-md font-light">
                 {product.longDescription}
             </p>
-            <span class="text-[#ff0000] text-lg">{product.price} Ft</span>
+            <div class="flex xxsm:flex-row flex-col items-center gap-4">
+                <span class="text-[#ff0000] text-lg">{product.price} Ft</span>
+                <span class="text-gray-600">
+                    Egységár: {product.price * 10} Ft/l
+                </span>
+            </div>
             <div
                 class="flex h-[4.5rem] w-[16rem] xxs:w-[20rem] xl:w-[32rem] self-center shadow mx-5"
             >
@@ -52,9 +58,14 @@
                     class="flex stroke-none w-[4.5rem] text-center bg-[#E6EBF0]"
                     type="number"
                     value="1"
+                    max="10"
+                    min="1"
+                    on:click|stopPropagation
                     style="-webkit-appearance: none;"
                 />
-                <button class="bg-[#d00000] text-white font-bold text-md w-full"
+                <button
+                    class="bg-[#d00000] text-white font-bold text-md w-full"
+                    on:click={(e) => addToCart(e, product)}
                     >Kosárhoz adom</button
                 >
             </div>

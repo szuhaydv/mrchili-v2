@@ -8,12 +8,16 @@
         returnClientTemplate,
         returnStaffTemplate,
     } from "./emailTemplates";
+    import { base } from "$app/paths";
+    const pdfGDPR = `${base}/adatkezelesi_tajekoztato.pdf`;
+    const pdfToC = `${base}/ÁSZF.pdf`;
 
     let isFoxpostModalOpen = false;
     let isGLSModalOpen = false;
 
     const formInfo = new OrderInfo();
     let isSame = true;
+    let isAccepted = false;
 
     let successfulOrder = false;
 
@@ -71,6 +75,7 @@
         deliveryAddressline,
         deliveryOptionals,
         isAddressSame,
+        isAccepted,
     ) {
         const baseChecks = [
             userCart.length == 0,
@@ -102,6 +107,8 @@
             if (pickupChecks.some((c) => c)) return false;
         } else if (deliveryMethod == "personal") {
             if (personalPickupMethod == "") return false;
+        } else if (!isAccepted) {
+            return false;
         }
         return true;
     }
@@ -127,6 +134,7 @@
         formInfo.deliveryAddressline,
         formInfo.deliveryOptionals,
         isSame,
+        isAccepted,
     );
 
     function receiveMessage(event) {
@@ -348,7 +356,7 @@
             />
             <div class="flex items-center gap-4 mt-8 px-4">
                 <input
-                    class="w-5 h-5 rounded-md"
+                    class="w-5 h-5 rounded-md cursor-pointer"
                     id="same"
                     type="checkbox"
                     bind:checked={isSame}
@@ -590,6 +598,31 @@
                     egyeztetünk.
                 </p>
             {/if}
+            <div
+                class="mt-4 flex items-center text-center xxsm:text-start gap-4 w-96 max-w-full sm:w-full px-4 justify-center"
+            >
+                <input
+                    class="w-5 h-5 rounded-md cursor-pointer"
+                    type="checkbox"
+                    bind:checked={isAccepted}
+                />
+                <div>
+                    Elolvastam és elfogadom az
+                    <a
+                        class="underline font-semibold text-blue-800"
+                        href={pdfGDPR}
+                        target="_blank">Adatvédelmi Tájékoztatót</a
+                    >
+                    és az
+                    <a
+                        href={pdfToC}
+                        class="underline font-semibold text-blue-800"
+                        target="_blank"
+                    >
+                        ÁSZF
+                    </a>-t
+                </div>
+            </div>
             <div class="w-full flex justify-center mt-8">
                 <button
                     class="text-lg text-white font-bold py-4 px-16 sm:px-32"

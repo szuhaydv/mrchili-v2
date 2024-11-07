@@ -1,3 +1,9 @@
+<script>
+    import { base } from "$app/paths";
+    const pdfGDPR = `${base}/adatkezelesi_tajekoztato.pdf`;
+    const pdfToC = `${base}/ÁSZF.pdf`;
+</script>
+
 <footer class="bg-white w-full flex p-2 xxs:p-4 md:p-8 text-slate-500">
     <section
         class="w-fit flex flex-col items-center sm:items-start mr-1 xxs:mr-4"
@@ -65,7 +71,9 @@
         </div>
     </section>
     <div class="flex flex-1 justify-evenly">
-        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
+        <section
+            class="text-[13px] xxsm:text-sm md:text-md flex flex-col gap-2"
+        >
             <h3>Főoldal</h3>
             <ul class="flex flex-col gap-2">
                 <li><a href="/#categories">Kategóriák</a></li>
@@ -75,7 +83,9 @@
                 <li><a href="/#contact">Kapcsolat</a></li>
             </ul>
         </section>
-        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
+        <section
+            class="text-[13px] xxsm:text-sm md:text-md flex flex-col gap-2"
+        >
             <a href="/products">
                 <h3>Termékeink</h3>
             </a>
@@ -85,7 +95,9 @@
                 <li><a href="/products#bbq">BBQ</a></li>
             </ul>
         </section>
-        <section class="text-[14px] xxs:text-sm md:text-md flex flex-col gap-2">
+        <section
+            class="text-[13px] xxsm:text-sm md:text-md flex flex-col gap-2"
+        >
             <a href="/contact">
                 <h3>Kapcsolat</h3>
             </a>
@@ -94,6 +106,12 @@
             </a>
             <a href="/order">
                 <h3>Rendelés</h3>
+            </a>
+            <a target="_blank" href={pdfGDPR}>
+                <h3>Adatkezelési<br />Tájékoztató</h3>
+            </a>
+            <a href={pdfToC} target="_blank">
+                <h3>ÁSZF</h3>
             </a>
         </section>
     </div>
