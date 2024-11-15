@@ -247,7 +247,7 @@
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     Chiliszósz
                 </h3>
-                <CallToAction destination="/products" text="Vásárolok →" />
+                <CallToAction destination="/products" text="Szétnézek →" />
             </li>
             <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
                 <img class="w-full" src="/chutney_category.png" alt="" />
@@ -256,7 +256,7 @@
                 </h3>
                 <CallToAction
                     destination="/products#chutney"
-                    text="Vásárolok →"
+                    text="Szétnézek →"
                 />
             </li>
             <li class="w-[50%] lg:w-[25%] flex flex-col items-center">
@@ -264,7 +264,7 @@
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     BBQ
                 </h3>
-                <CallToAction destination="/products#bbq" text="Vásárolok →" />
+                <CallToAction destination="/products#bbq" text="szétnézek →" />
             </li>
         </ul>
     </div>
@@ -377,7 +377,7 @@
             />
         </div>
         <div class="mt-8">
-            <CallToAction destination="/products" text="Vásárolok →"
+            <CallToAction destination="/products" text="Szétnézek →"
             ></CallToAction>
         </div>
     </div>

@@ -52,7 +52,76 @@
                     {$userCart.length}
                 </div>
             {/if}
-            <img src="/cart.svg" alt="Cart icon" />
+            <!--<img src="/cart.svg" alt="Cart icon" />-->
+            <svg
+                class="w-full h-full"
+                width="60"
+                height="61"
+                viewBox="0 0 60 61"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip0_53_1315)">
+                    <g filter="url(#filter0_d_53_1315)">
+                        <path
+                            d="M14.2629 54.6621L24.7567 46.5521L14.2629 39.417V54.6621Z"
+                            fill="#4798FF"
+                        />
+                        <path
+                            d="M0 25.6141L14.4068 36.0594L54.5903 10.3699L17.8861 38.5825L39.3434 54.1381L60 5.94336L0 25.6141Z"
+                            fill="#000"
+                        />
+                    </g>
+                </g>
+                <defs>
+                    <filter
+                        id="filter0_d_53_1315"
+                        x="-1.185"
+                        y="5.94336"
+                        width="62.37"
+                        height="51.0887"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                    >
+                        <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                        />
+                        <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                        />
+                        <feOffset dy="1.185" />
+                        <feGaussianBlur stdDeviation="0.5925" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                        />
+                        <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_53_1315"
+                        />
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_53_1315"
+                            result="shape"
+                        />
+                    </filter>
+                    <clipPath id="clip0_53_1315">
+                        <rect
+                            width="60"
+                            height="60"
+                            fill="white"
+                            transform="translate(0 0.318359)"
+                        />
+                    </clipPath>
+                </defs>
+            </svg>
         </a>
     </nav>
     <a

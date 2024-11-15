@@ -1,7 +1,7 @@
 <script>
     import { base } from "$app/paths";
     const pdfGDPR = `${base}/adatkezelesi_tajekoztato.pdf`;
-    const pdfToC = `${base}/ÁSZF.pdf`;
+    const pdfToC = `${base}/aszf.pdf`;
 </script>
 
 <footer class="bg-white w-full flex p-2 xxs:p-4 md:p-8 text-slate-500">

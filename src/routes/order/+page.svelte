@@ -1,16 +1,18 @@
 <script>
     import OrderSummary from "./OrderSummary.svelte";
-    import { Modal, Alert } from "flowbite-svelte";
+    import { Modal, Alert, Popover, Button } from "flowbite-svelte";
     import { onMount } from "svelte";
     import { userCart } from "../cartService";
     import { OrderInfo } from "../dataService";
+    import { slide } from "svelte/transition";
     import {
         returnClientTemplate,
         returnStaffTemplate,
     } from "./emailTemplates";
     import { base } from "$app/paths";
+    import Page from "../+page.svelte";
     const pdfGDPR = `${base}/adatkezelesi_tajekoztato.pdf`;
-    const pdfToC = `${base}/ÁSZF.pdf`;
+    const pdfToC = `${base}/aszf.pdf`;
 
     let isFoxpostModalOpen = false;
     let isGLSModalOpen = false;
@@ -633,10 +635,30 @@
                     disabled={!isFormValidated}>RENDELÉS</button
                 >
             </div>
-            <p class="text-[#9D9D9D] w-full my-4 text-center px-4">
-                A fizetés bankszámlaszámra történő utalással történik. <br /> A részletekről
-                e-mailben értesítjük.
-            </p>
+            <div
+                class="flex items-center justify-center gap-2 self-center px-4"
+            >
+                <p class="text-[#9D9D9D] w-full my-4 text-center max-w-[26rem]">
+                    A fizetés bankszámlaszámra történő utalással történik. A
+                    részletekről e-mailben értesítjük.
+                </p>
+                <Button
+                    id="info"
+                    class="p-0 bg-transparent hover:bg-transparent"
+                >
+                    <img
+                        class="cursor-pointer w-6 h-6"
+                        src="/info.svg"
+                        alt="Info icon"
+                    />
+                </Button>
+            </div>
+
+            <Popover class="max-w-80" triggeredBy="#info">
+                A rendelés gomb megnyomásával nem történik szerződéskötés a
+                felek között. A vásárlónak nem keletkezik fizetési
+                kötelezettsége.
+            </Popover>
         </form>
     </div>
 
