@@ -264,7 +264,7 @@
                 <h3 class="text-sxl leading-tight font-freeman text-white mb-4">
                     BBQ
                 </h3>
-                <CallToAction destination="/products#bbq" text="szétnézek →" />
+                <CallToAction destination="/products#bbq" text="Szétnézek →" />
             </li>
         </ul>
     </div>
