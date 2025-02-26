@@ -247,8 +247,8 @@ export let productInfo = [
         "A Jó, a Rossz és a Csúf",
         2990,
         2,
-        "Kápia paprika - Habanero - Trinidad Moruga Scorpion chiliszósz",
-        "kápia paprika, Habanero, Trinidad Moruga Scorpion Red, balzsamecet, almaecet, vöröshagyma, fokhagyma, só, nátrium-benzoát",
+        "Kápia - Habanero - Trinidad Moruga Scorpion chiliszósz",
+        "kápia, Habanero, Trinidad Moruga Scorpion Red, balzsamecet, almaecet, vöröshagyma, fokhagyma, só, nátrium-benzoát",
         "A vadnyugat kopár prérijén  pisztolydörrenés hangja süvít végig. A távolban három alak bontakozik ki, akik egytől egyig fegyvert szorítanak egymásra. A lábad menekülne, de a három férfi, a Jó, a Rossz és a Csúf jelenléte valami megmagyarázhatatlan harmóniával tölti meg az elmédet. Úgy megkedveled ezt az érzést, hogy a mesterhármas végigkövet az utadon, legyen szó egy ízletes marhapörköltről vagy egy szaftos csirkepaprikásról.",
     ),
     new Product(

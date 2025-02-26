@@ -32,7 +32,7 @@
     </div>
     <header>
         <h2
-            class="text-lg font-semibold leading-normal text-center border-b-2 border-b-[#E6EBF0] mx-3"
+            class="text-md mt-2 font-semibold leading-normal text-center border-b-2 border-b-[#E6EBF0] mx-3"
         >
             {product.title}
         </h2>
@@ -51,7 +51,9 @@
                 </li>
             {/each}
         </ul>
-        <p class="mx-8 text-md text-center">{product.shortDescription}</p>
+        <p class="mx-8 min-h-[3rem] text-sm text-center">
+            {product.shortDescription}
+        </p>
         <h3 class="text-md font-bold text-center leading-tight">100ml</h3>
         <h3
             class="text-lg font-extralight text-center text-[#ff0000] leading-tight"
