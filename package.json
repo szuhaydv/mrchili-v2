@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "bunx tailwindcss -i ./src/input.css -o ./static/output.css && vite build",
+        "build": "bun-vercel ./src/main.ts",
+        "buildCommand": "bunx tailwindcss -i ./src/input.css -o ./static/output.css && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
@@ -16,6 +17,7 @@
 		"@sveltejs/kit": "^2.17.3",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/node": "^22.13.5",
+		"bun-vercel": "^1.0.0-alpha.5",
 		"flowbite": "^2.5.2",
 		"flowbite-svelte": "^0.47.4",
 		"svelte": "^4.2.19",
