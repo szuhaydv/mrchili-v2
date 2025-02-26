@@ -1,3 +1,11 @@
+<svelte:head>
+    <title>Rólunk</title>
+    <meta
+        name="description"
+        content="Ismerje meg a Mr. Chili történetét, ahol a szenvedély és a minőség találkozik."
+    />
+</svelte:head>
+
 <main
     class="relative mx-2 xxs:mx-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 min-h-[calc(100vh-6rem)] mb-8"
 >
