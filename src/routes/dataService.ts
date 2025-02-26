@@ -228,7 +228,40 @@ export let productInfo = [
 		"sütőtök, Bahamian Goat Pepper, balzsamecet, vöröshagyma, fokhagyma, gyömbér, méz, szerecsendió, só, citromsav, nátrium-benzoát",
 		"Sütőtök illata árad a konyhából egy borús őszi estén. A szerecsendió, gyömbér és chili hármasa tökéletesen harmonizál a mézes tökpürével. Ha szereted a különleges ízvilágú kávékat, egy Pumpkin Spicy Latte-t mindenképp készíts a szósszal, de a melegszendvicsedet is garantáltan feldobja.",
 		"Bahamian Goat Pepper"
-	)
+	),
+    new Product(
+        7,
+        0,
+        "/trinidad.png",
+        "Trinidad Aranya",
+        2990,
+        2,
+        "Kaliforniai paprika - Trinidad Moruga Scorpion chiliszósz",
+        "sárga kaliforniai paprika, Trinidad Moruga Scorpion Yellow, almaecet, vöröshagyma, fokhagyma, méz, só, citromsav, nátrium-benzoát",
+        "Trinidad aranya, az elfeledett kincs időtlen idők óta a tenger mélyén pihen, polipkarok szorításában. Egy ősi kalózlegenda szerint azért vetették vízbe, mert képes minden halandót megbabonázni, aki egyetlen érmét is elkölt belőle. A legenda igazát ugyan nem tudom alátámasztani, de abban biztosak lehetünk, hogy aki egyszer megtapasztalja a kincs közelségét, az nem szabadul többé. Ha kifogynál az ötletekből, tükörtojások, rántották, melegszendvicsek és kalózételek tökéletes partnere.",
+    ),
+    new Product(
+        8,
+        0,
+        "/goodbad.png",
+        "A Jó, a Rossz és a Csúf",
+        2990,
+        2,
+        "Kápia - Habanero - Trinidad Moruga Scorpion chiliszósz",
+        "kápia, Habanero, Trinidad Moruga Scorpion Red, balzsamecet, almaecet, vöröshagyma, fokhagyma, só, nátrium-benzoát",
+        "A vadnyugat kopár prérijén  pisztolydörrenés hangja süvít végig. A távolban három alak bontakozik ki, akik egytől egyig fegyvert szorítanak egymásra. A lábad menekülne, de a három férfi, a Jó, a Rossz és a Csúf jelenléte valami megmagyarázhatatlan harmóniával tölti meg az elmédet. Úgy megkedveled ezt az érzést, hogy a mesterhármas végigkövet az utadon, legyen szó egy ízletes marhapörköltről vagy egy szaftos csirkepaprikásról.",
+    ),
+    new Product(
+        9,
+        0,
+        "/adios.png",
+        "Adios Amigos",
+        3490,
+        3,
+        "Habanero chiliszósz",
+        "Habanero, balzsamecet, fokhagyma, só, nátrium-benzoát",
+        "Holtsápadt alakok ugrálnak az oltár körül, díszes koponyát idéző arcfestést viselve, miközben lágy zene tölti meg a teret. A magasból szemléled a történteket, egy koporsóban nyugvó ember felől, s meglepetten tapasztalod, hogy magadat látod odalent. A táncoló alakok egyesével odasétálnak hozzád és ezt súgják a füledbe: Adios Amigo. Az egyik alak közelsége olyan hatást gyakorol rád, hogy a szíved heves kalimpálásba kezd, az egész tested izzadni kezd, majd váratlanul felhajolsz a gulyáslevesed felől és csak értetlenül pislogsz.",
+    )
 ]
 
 export class PickupPointInfo {
