@@ -260,6 +260,11 @@
         type="module"
         src="https://map.gls-hungary.com/widget/gls-dpm.js"
     ></script>
+    <title>Rendelés</title>
+    <meta
+        name="description"
+        content="Személyes átvétel · Házhozszállítás, Csomagpont (GLS, FoxPost)"
+    />
 </svelte:head>
 
 <main

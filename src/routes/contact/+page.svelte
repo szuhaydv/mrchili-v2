@@ -33,6 +33,11 @@
     }
 </script>
 
+<svelte:head>
+    <title>Kapcsolat</title>
+    <meta name="description" content="Email · TikTok · Facebook · Instagram" />
+</svelte:head>
+
 <main
     class="relative mx-2 xxsm:mx-8 lg:mx-12 bg-white rounded-[3rem] pt-8 min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] mb-8"
 >

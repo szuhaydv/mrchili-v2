@@ -50,6 +50,14 @@
     $: filterProducts(selectedCategories, selectedSpiceLevels);
 </script>
 
+<svelte:head>
+    <title>Termékeink</title>
+    <meta
+        name="description"
+        content="Fedezze fel a Mr. Chili márka egyedi chiliszószaiból és chutney-kből álló választékát. A Végítélet erőteljes ízvilágától a Gangsteper édes-csípős harmóniájáig, minden termékünk különleges ízélményt nyújt."
+    />
+</svelte:head>
+
 <main
     class="relative mx-2 xxs:mx-8 mb-8 lg:mx-12 bg-white rounded-[3rem] banner pt-20 md:pt-32 xxl:pt-12"
 >
